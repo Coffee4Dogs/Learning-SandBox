@@ -1,0 +1,25 @@
+Que es un arreglo?
+Un arreglo es una variable que puede guardar mas de un valor secuencialmente y del mismo tipo.
+
+Areglos bidimensionales. ----------------------------------
+Es una variable que puede almacenar un conjunto de datos organizados en filas y columnas.
+Objetivo: Comprender como se organizan y se organizan, se almacenan y se recorren los datos en un arreglo bidimencional.
+
+
+x = A.length; = cuantas filas tiene el array.
+x = A[1].length; = cuantas colunas tiene el array.
+
+
+// Type Casting. --------------------------------------
+        // Como convertir una variable de tipo string a tipo int.
+        //Las ventanas solo pueden capturar texto (string). Hay que convertir el texto a numero.
+        
+        String sn1, sn2;
+        int n1, n2; double resp;
+        sn1 = "30"; sn2 = "20";
+        
+        n1 = Integer.valueOf(sn1); n2 = Integer.valueOf(sn2);
+        System.out.println(n1+n2);
+
+
+

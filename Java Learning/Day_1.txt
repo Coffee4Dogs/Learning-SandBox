@@ -1,0 +1,67 @@
+Cursos de INFOP
+Son casi 90 horas pero son gratis. En otros paises esto costaria 200,000 lempiras y casi nadie le para bola.
+Lo que se va a enseñar en la clase solo es una parte y nosotros tenemos que sacar el resto del certificado de Java.
+
+Tambien hay cursos de Arduino, Python, MySql
+
+Compiladores de JAVA:
+- netbeans IDE
+- eclipse
+
+Como enviar tareas: 
+Archivo: Tarea1JackLagos.txt
+
+Mandar codigo en un .txt
+Poner una mini portada que tenga:
+- Numero de Cuenta: 32011727
+- Nombre: Jack Hollmann Lagos Mejia
+- Clase: Programacion 1
+- Seccion: 22
+- Actividad: Laboratorio 4 Semana 4
+- Fecha: mié 19 de abr de 2023
+
+
+// =======================================================
+
+
+CODIGO
+
+
+// ========================================================
+Output (Salida) Cuando no se pone esta parte de la tarea solo es la mitad de los puntos.
+
+___________________________________________________________________________________________
+
+
+Datos simples cuando son datos puntuales. Como Juan, 57, true, etc.
+Datos estructurados, cuando estan compuestos por un conjunto de datos de igual o diferente tipo.
+
+Los datos numericos se dividen en:
+  - Int (Enteros, que no tienen punto decimal.)
+  - Float (Flotante o Double) 4 bytes.
+  - String (Alfanumericos, Letras, Digitos, etc)
+  - Bool (Booleanos, True/False)
+  - Double es como un flotante pero de doble precision.
+
+
+Partes de un programa:
+- Declaracion de variables.
+- Entrada de datos
+- Proceso de datos
+- Salida de datos
+
+
+
+Talentos Ocultos
+
+
+
+
+
+
+
+
+
+
+
+

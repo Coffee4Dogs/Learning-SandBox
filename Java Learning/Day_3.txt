@@ -1,0 +1,19 @@
+Tema: Metodos
+Que es un metodo?
+Un metodo es un subprograma experto en realizar una tarea y es llamado cuando se le necesita.
+
+Los metodos se clasifican en:
+a) Procedimientos
+b) Funciones.
+  b.1) Funciones Predefinidas
+  b.2) Funciones Definidas por el usuario.
+
+
+Procedimientos: Son de tipo void y no retornan ningun valor.
+Funciones: No son de tipo void, pueden ser de tipo int, double, string, boolean o cualquier otro tipo. Las funciones siempre retornan un valor del mismo tipo de la funcion.
+
+
+En una variable se pueden almacenar multiples valores. 
+El indice empieza siempre en 0.
+
+

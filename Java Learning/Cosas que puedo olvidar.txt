@@ -1,0 +1,16 @@
+Atributos
+Variables que representan el estado de un objeto.
+
+Metodos
+Funciones que definen el comportamiento de la clase. Pueden realizar operaciones o proporcionar informacion sobre el objeto.
+
+Objeto o una Instance
+Es una instancia concreta de una clase.
+
+Encapsulamiento
+El principio de encapsular los detalles internos de una clase y proporcionar una interfaz externa para interactuar con ella. Public, private y protected.
+
+
+
+
+

@@ -1,0 +1,211 @@
+- Numero de Cuenta: 32011727
+- Nombre: Jack Hollmann Lagos Mejia
+- Clase: Programacion 2
+- Seccion: 865
+- Actividad: Laboratorio 2 Semana 2
+- Fecha: 24 de oct de 2023 
+
+
+
+
+------------------------------------------------------------------------------
+============================CLASE MAIN =======================================
+------------------------------------------------------------------------------
+
+
+
+
+package com.mycompany.tablaproductos865;
+
+
+public class TablaProductos865 {
+        public static Producto P1 = new Producto();
+        public static Producto P2 = new Producto();
+        public static Producto P3 = new Producto();
+        public static Producto P4 = new Producto();
+        public static Producto P5 = new Producto();
+        
+        
+        
+    public static void Datos(){
+        P1.GuardaRegistro("P01", "Queso", 3, 47.50, false);
+        P2.GuardaRegistro("P02", "PAPAS", 2, 8.45, false);
+        P3.GuardaRegistro("P03", "MARGARINA", 1, 9.30, true);
+        P4.GuardaRegistro("P04", "HUEVOS", 2, 45.00, false);
+        P5.GuardaRegistro("P05", "CHILE(4 OZ)", 3, 7.20, true);
+    }
+    
+ 
+    public static void ImprimeTabla(){
+        System.out.println("CODPROD"+ "\t" +"PRODUCTO"+ "\t" +"CANT"+ "\t\t" +"PRECIO"+ "\t"  +"GRAV" + "\t" + "SubTotal"+ "\t" + "Imp"+ "\t" + "Total");
+        P1.ImprimeRegistro();
+        P2.ImprimeRegistro();
+        P3.ImprimeRegistro();
+        P4.ImprimeRegistro();
+        P5.ImprimeRegistro();
+
+    }    
+    
+    
+    public static void Calculos(){
+        P1.Calcular();
+        P2.Calcular();
+        P3.Calcular();
+        P4.Calcular();
+        P5.Calcular();
+    }//Fin del metodo Calculos.
+    
+    
+    
+    public static void main(String[] args) {
+        //P1 es el objeto.
+        System.out.println("Tabla Productos B");
+        
+        
+        Datos();
+        Calculos();
+        ImprimeTabla();
+        
+        
+    }//Fin del metodo.
+    
+}// Fin de la clase Principal (tablaproductos865).
+
+
+
+
+
+
+------------------------------------------------------------------------------
+============================CLASE Productos.java =============================
+------------------------------------------------------------------------------
+
+
+
+
+package com.mycompany.tablaproductos865;
+
+
+
+public class Producto {
+// Menu
+    // CODPROD | PRODUCTO | CANTIDAD | PRECIO | GRAV
+    
+//Variables:
+    // CodProd, NomProd, Cantidad, Precio y Grab
+    String CodProd; 
+    String NomProd;
+    int Cantidad;
+    double Precio;
+    boolean Grab;
+    
+    
+    double SubTot;
+    double Imp;
+    double Total;
+    
+    
+    public Producto(){
+        /*Un constructor sirve para inicializar el objeto y establecer sus 
+        * propiedades y valores predeterminados. Tiene el mismo nombre que 
+        * la clase y no cuenta con ningún valor de retorno, ya que su función 
+        * principal es inicializar el objeto y no devolver ningún valor.
+        */
+
+        CodProd = "cc";
+        NomProd= "pp";
+        Cantidad = 0;
+        Precio = 0.0;
+        Grab = false;
+        
+        
+        SubTot = 0;
+        Imp = 0;
+        Total = 0;
+        
+        
+        
+    }//Fin del constructor
+    
+    
+    void GuardaRegistro(String cp, String np, int c, double p, boolean g){
+        CodProd = cp;
+        NomProd= np;
+        Cantidad = c;
+        Precio = p;
+        Grab = g;
+    }//Fin del Metodo GuardaRegisto
+    
+    
+    void ImprimeRegistro(){
+        
+        String f1, f2, f3, f4, f5, f6 , f7, f8, f;
+        
+        f1 = "%-8s"; f2 = "%-17s"; f3 = "%-15d"; f4 = "%-8.2f"; f5 = "%-10b"; 
+        f6 = "%-10.2f"; f7 = "%-10.2f"; f8 = "%-10.2f";
+        f = f1+f2+f3+f4+f5+f6+f7+f8+"\n";
+        
+        
+        System.out.format(f,CodProd ,NomProd, Cantidad ,Precio, Grab, SubTot, Imp, Total );
+    
+    }//Fin del Metodo ImprimeRegistro
+    
+    void Calcular(){
+    
+    SubTot = Precio*Cantidad;
+    if (Grab)
+    Imp = SubTot * 0.15;
+    else Imp = 0;
+    Total = SubTot + Imp;
+    
+    
+    }
+    
+    
+    
+    
+    
+}//fin de la clase producto.
+
+
+
+
+------------------------------------------------------------------------------
+============================OUTPUT/SALIDA======= =============================
+------------------------------------------------------------------------------
+
+cd C:\Users\jackl\Documents\NetBeansProjects\TablaProductos865; "JAVA_HOME=C:\\Program Files\\Java\\jdk-11" cmd /c "\"C:\\Program Files\\NetBeans-19\\netbeans\\java\\maven\\bin\\mvn.cmd\" -Dexec.vmArgs= \"-Dexec.args=${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}\" -Dexec.appArgs= -Dexec.mainClass=com.mycompany.tablaproductos865.TablaProductos865 \"-Dexec.executable=C:\\Program Files\\Java\\jdk-11\\bin\\java.exe\" \"-Dmaven.ext.class.path=C:\\Program Files\\NetBeans-19\\netbeans\\java\\maven-nblib\\netbeans-eventspy.jar\" -Dfile.encoding=UTF-8 --no-transfer-progress process-classes org.codehaus.mojo:exec-maven-plugin:3.1.0:exec"
+Scanning for projects...
+
+------------------< com.mycompany:TablaProductos865 >-------------------
+Building TablaProductos865 1.0-SNAPSHOT
+  from pom.xml
+--------------------------------[ jar ]---------------------------------
+
+--- resources:3.3.1:resources (default-resources) @ TablaProductos865 ---
+skip non existing resourceDirectory C:\Users\jackl\Documents\NetBeansProjects\TablaProductos865\src\main\resources
+
+--- compiler:3.11.0:compile (default-compile) @ TablaProductos865 ---
+Nothing to compile - all classes are up to date
+
+--- exec:3.1.0:exec (default-cli) @ TablaProductos865 ---
+Tabla Productos B
+CODPROD	PRODUCTO	CANT		PRECIO	GRAV	SubTotal	Imp	Total
+P01     Queso            3              47.50   false     142.50    0.00      142.50    
+P02     PAPAS            2              8.45    false     16.90     0.00      16.90     
+P03     MARGARINA        1              9.30    true      9.30      1.40      10.70     
+P04     HUEVOS           2              45.00   false     90.00     0.00      90.00     
+P05     CHILE(4 OZ)      3              7.20    true      21.60     3.24      24.84     
+------------------------------------------------------------------------
+BUILD SUCCESS
+------------------------------------------------------------------------
+Total time:  2.808 s
+Finished at: 2023-10-24T09:23:08-06:00
+------------------------------------------------------------------------
+
+
+
+
+
+
+
