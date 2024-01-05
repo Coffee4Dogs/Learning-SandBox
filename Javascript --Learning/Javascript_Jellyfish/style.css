@@ -1,0 +1,106 @@
+::selection {
+    background-color: rgb(245, 188, 0); /* Cambia el color de fondo */
+    color: #ffffff; /* Cambia el color del texto */
+  }
+
+body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(bg.jpg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'DM Mono', monospace;          
+}
+
+        
+        #menu {
+            background-color: #00000000;
+            color: #fff;
+            padding: 20px;
+            position: fixed; /* Se usa fixed para que no se mueva de ahi al hacer scroll. */
+            top: 0%;/* Se combina con position fixed */
+        }
+        
+
+
+        #menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            
+        }
+        
+        #menu ul li {
+            margin-right: 20px;
+        }
+        
+        #menu ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #menu ul li a:hover {
+            color: rgb(245, 188, 0);
+            transition: 0.5s ease;
+            text-decoration: none;
+        }
+
+        #content1{
+            color: #abd1d8;
+            position: absolute; /* Tambien se puede usar relative */
+            left: 65%; /* Aqui lo combine con position absolute*/
+            top: 20%;/* Aqui tambien lo combine con position absolute. */
+            text-align: left;
+        }
+
+        #content1 a{
+            text-decoration: none; /* Le quito la rallita al link */
+            color: rgb(7, 141, 250); 
+        }
+
+        #content1 a:hover{
+            color: rgb(245, 188, 0);
+
+        }
+     
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 200,
+          'GRAD' 0,
+          'opsz' 24
+        }
+       
+
+        .purple{
+            color: rgb(38, 112, 182);
+        }
+
+        #main1{
+            position: absolute;
+            top: 50%;
+            left: 30%;
+            color:#fff;
+            width: 200px; 
+            height: 200px;
+        }
+        
+        .icon1{
+            fill: #fff;
+            transition: fill 0.5s ease;
+        }
+            
+        .icono:hover {
+            fill: rgb(245, 188, 0);
+        }
+       
+
+
+
+        
