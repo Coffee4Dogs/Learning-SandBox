@@ -1,0 +1,8 @@
+Ctrl + Enter to complete commands.
+
+mydb is the name of the database I created in this example.
+
+CREATE:: create database mydb
+SELECT:: use mydb
+DELETE:: drop database mydb
+READ-ONLY:: alter database mydb read only = 1;
