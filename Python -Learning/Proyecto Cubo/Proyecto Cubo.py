@@ -12,7 +12,7 @@ try:
     white = "#ffffff"
     green = "#67e342"
     blue = "#2b8ed9"
-    screen_resolution = "800x600"
+    screen_resolution = "800x640"
     font_familly = "Zilla Slab Highlight"
     font_color = "#0a0a0a"
     font_size = 20
@@ -95,7 +95,7 @@ COL6 =    ["COL6", blue, blue, blue,
 # Place Everything in the box
 Box_Container = Frame(window,background=box_background, pady=20, padx=20)
 Box_Container.pack(pady=20)
-Combo_526 = Frame(Box_Container)
+Combo_526 = Frame(Box_Container  ,background=box_background)
 #--- Switch Function ---
 # x = C1[1], y = COL[1]
 # x = Position | y = Color
@@ -132,7 +132,7 @@ A1Label = Label(A_Button_Container, text="A1", padx=3, fg=button_foreground, bg=
 A1Label.pack(side="left")
 
 
-B_Button_Container = Frame(Box_Container)
+B_Button_Container = Frame(Box_Container,background=box_background)
 
 
 B3Label = Label(B_Button_Container,text="B3", padx=3, fg=button_foreground, bg=button_background, image=DownIcon,  font=(button_font,button_font_size),  compound="top")
@@ -142,8 +142,8 @@ B2Label.pack(side="left")
 B1Label = Label(B_Button_Container, text="B1", padx=3, fg=button_foreground, bg=button_background, image=DownIcon,  font=(button_font,button_font_size), compound="top")
 B1Label.pack(side="left")
 
-I_Button_Container = Frame(Box_Container)
-I_Button_Container.pack(side="left")
+I_Button_Container = Frame(Combo_526  ,background=box_background)
+
 
 I1Label = Label(I_Button_Container, text="I1", padx=3, fg=button_foreground, bg=button_background, image=RightIcon,  font=(button_font,button_font_size), compound="right")
 I1Label.pack(side="top")
@@ -151,6 +151,16 @@ I2Label = Label(I_Button_Container, text="I2", padx=3, fg=button_foreground, bg=
 I2Label.pack(side="top")
 I3Label = Label(I_Button_Container,text="I3", padx=3, fg=button_foreground, bg=button_background, image=RightIcon,  font=(button_font,button_font_size),  compound="right")
 I3Label.pack(side="top")
+
+D_Button_Container = Frame(Combo_526  ,background=box_background)
+
+
+D1Label = Label(D_Button_Container, text="D1", padx=3, fg=button_foreground, bg=button_background, image=LeftIcon,  font=(button_font,button_font_size), compound="left")
+D1Label.pack(side="top")
+D2Label = Label(D_Button_Container, text="D2", padx=3, fg=button_foreground, bg=button_background, image=LeftIcon, font=(button_font,button_font_size), compound="left")
+D2Label.pack(side="top")
+D3Label = Label(D_Button_Container,text="D3", padx=3, fg=button_foreground, bg=button_background, image=LeftIcon,  font=(button_font,button_font_size),  compound="left")
+D3Label.pack(side="top")
 
 
 
@@ -165,18 +175,21 @@ I3Label.pack(side="top")
 
 
 
-Container_C1_Relative = Frame(Box_Container)
-Container_C2_Relative = Frame(Combo_526)
-Container_C3_Relative = Frame(Box_Container)
-Container_C4_Relative = Frame(Box_Container)
-Container_C5_Relative = Frame(Combo_526)
-Container_C6_Relative = Frame(Combo_526)
+Container_C1_Relative = Frame(Box_Container ,background=box_background)
+Container_C2_Relative = Frame(Combo_526, background=box_background)
+Container_C3_Relative = Frame(Box_Container, background=box_background)
+Container_C4_Relative = Frame(Box_Container ,background=box_background)
+Container_C5_Relative = Frame(Combo_526 ,background=box_background)
+Container_C6_Relative = Frame(Combo_526 ,background=box_background)
 
-Container_C1_Relative.pack(side="top")
+Container_C1_Relative.pack(side="top" )
 
+I_Button_Container.pack(side="left")
 Container_C5_Relative.pack(side="left")
 Container_C2_Relative.pack(side="left")
 Container_C6_Relative.pack(side="left")
+D_Button_Container.pack(side="left")
+
 Combo_526.pack(side="top")
 
 Container_C3_Relative.pack(side="top")
@@ -186,9 +199,9 @@ B_Button_Container.pack(side="top")
 
 # --- C1 Container --- 
 # Row Containers
-Container_C1_Row1 = Frame(Container_C1_Relative)
-Container_C1_Row2 = Frame(Container_C1_Relative)
-Container_C1_Row3 = Frame(Container_C1_Relative)
+Container_C1_Row1 = Frame(Container_C1_Relative ,background=box_background)
+Container_C1_Row2 = Frame(Container_C1_Relative ,background=box_background)
+Container_C1_Row3 = Frame(Container_C1_Relative ,background=box_background)
 Container_C1_Row1.pack()
 Container_C1_Row2.pack()
 Container_C1_Row3.pack()
@@ -225,9 +238,9 @@ ButtonC19.pack(side="left")
 
 # --- C2 Container --- 
 # Row Containers
-Container_C2_Row1 = Frame(Container_C2_Relative)
-Container_C2_Row2 = Frame(Container_C2_Relative)
-Container_C2_Row3 = Frame(Container_C2_Relative)
+Container_C2_Row1 = Frame(Container_C2_Relative ,background=box_background)
+Container_C2_Row2 = Frame(Container_C2_Relative ,background=box_background)
+Container_C2_Row3 = Frame(Container_C2_Relative ,background=box_background)
 Container_C2_Row1.pack()
 Container_C2_Row2.pack()
 Container_C2_Row3.pack()
@@ -263,9 +276,9 @@ ButtonC29.pack(side="left")
 
 # --- C3 Container --- 
 # Row Containers
-Container_C3_Row1 = Frame(Container_C3_Relative)
-Container_C3_Row2 = Frame(Container_C3_Relative)
-Container_C3_Row3 = Frame(Container_C3_Relative)
+Container_C3_Row1 = Frame(Container_C3_Relative ,background=box_background)
+Container_C3_Row2 = Frame(Container_C3_Relative ,background=box_background)
+Container_C3_Row3 = Frame(Container_C3_Relative ,background=box_background)
 Container_C3_Row1.pack()
 Container_C3_Row2.pack()
 Container_C3_Row3.pack()
@@ -301,9 +314,9 @@ ButtonC39.pack(side="left")
 
 # --- C4 Container --- 
 # Row Containers
-Container_C4_Row1 = Frame(Container_C4_Relative)
-Container_C4_Row2 = Frame(Container_C4_Relative)
-Container_C4_Row3 = Frame(Container_C4_Relative)
+Container_C4_Row1 = Frame(Container_C4_Relative ,background=box_background)
+Container_C4_Row2 = Frame(Container_C4_Relative ,background=box_background)
+Container_C4_Row3 = Frame(Container_C4_Relative ,background=box_background)
 Container_C4_Row1.pack()
 Container_C4_Row2.pack()
 Container_C4_Row3.pack()
@@ -340,9 +353,9 @@ ButtonC49.pack(side="left")
 
 # --- C5 Container --- 
 # Row Containers
-Container_C5_Row1 = Frame(Container_C5_Relative)
-Container_C5_Row2 = Frame(Container_C5_Relative)
-Container_C5_Row3 = Frame(Container_C5_Relative)
+Container_C5_Row1 = Frame(Container_C5_Relative ,background=box_background)
+Container_C5_Row2 = Frame(Container_C5_Relative ,background=box_background)
+Container_C5_Row3 = Frame(Container_C5_Relative ,background=box_background)
 Container_C5_Row1.pack()
 Container_C5_Row2.pack()
 Container_C5_Row3.pack()
@@ -379,9 +392,9 @@ ButtonC59.pack(side="left")
 
 # --- C5 Container --- 
 # Row Containers
-Container_C6_Row1 = Frame(Container_C6_Relative)
-Container_C6_Row2 = Frame(Container_C6_Relative)
-Container_C6_Row3 = Frame(Container_C6_Relative)
+Container_C6_Row1 = Frame(Container_C6_Relative ,background=box_background)
+Container_C6_Row2 = Frame(Container_C6_Relative ,background=box_background)
+Container_C6_Row3 = Frame(Container_C6_Relative ,background=box_background)
 Container_C6_Row1.pack()
 Container_C6_Row2.pack()
 Container_C6_Row3.pack()
