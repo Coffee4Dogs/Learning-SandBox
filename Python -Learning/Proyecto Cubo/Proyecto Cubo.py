@@ -4,27 +4,41 @@ window = Tk()
 
 
 # ---Settings ---
-window_bg_color = "#181818"
-red = "#d91e1e"
-yellow = "#eaed24"
-orange = "#f7911b"
-white = "#ffffff"
-green = "#67e342"
-blue = "#2b8ed9"
-screen_resolution = "400x500"
-font_familly = "Zilla Slab Highlight"
-font_color = "#0a0a0a"
-font_size = 20
-entry_width = 2
-box_background = "#0a0a0a"
+try:
+    window_bg_color = "#141414"
+    red = "#d91e1e"
+    yellow = "#eaed24"
+    orange = "#f7911b"
+    white = "#ffffff"
+    green = "#67e342"
+    blue = "#2b8ed9"
+    screen_resolution = "800x600"
+    font_familly = "Zilla Slab Highlight"
+    font_color = "#0a0a0a"
+    font_size = 20
+    button_font = "VT323"
+    button_font_size = 20
+    button_foreground = "#ffffff"
+    button_background = "#0a0a0a"
+    entry_width = 2
+    box_background = "#101010"
+    
+    
+except Exception as error:
+    print("Error in #Settings", error)
 
 
 # (Also settings)
-window.title("Proyecto Cubo")
-window.geometry(screen_resolution)
-favicon = PhotoImage(file="Assets/favicon.png")
-window.iconphoto(True, favicon)
-window.config(background=window_bg_color)
+try:
+    window.title("Proyecto Cubo")
+    window.geometry(screen_resolution)
+    favicon = PhotoImage(file="Assets/favicon.png")
+    window.iconphoto(True, favicon)
+    window.config(background=window_bg_color)
+    window.resizable(True,True)
+except Exception as error:
+    print("Error in (Also Settings)", error)
+    
 # --- Declare Lists ---
 C1 =    [0, 11, 12, 13,
             14, 15, 16,
@@ -76,21 +90,79 @@ COL6 =    ["COL6", blue, blue, blue,
             blue, blue, blue,
             blue, blue, blue]
 
+
+# --- Box Container --- 
+# Place Everything in the box
+Box_Container = Frame(window,background=box_background, pady=20, padx=20)
+Box_Container.pack(pady=20)
+Combo_526 = Frame(Box_Container)
 #--- Switch Function ---
 # x = C1[1], y = COL[1]
 # x = Position | y = Color
+
+
+
+UpIcon = PhotoImage(file="Assets/up.png")
+UpIcon = UpIcon.subsample(26)
+DownIcon = PhotoImage(file="Assets/down.png")
+DownIcon = DownIcon.subsample(26)
+LeftIcon = PhotoImage(file="Assets/left.png")
+LeftIcon = LeftIcon.subsample(26)
+RightIcon = PhotoImage(file="Assets/right.png")
+RightIcon = RightIcon.subsample(26)
+
+
+A_Button_Container = Frame(Box_Container, background="#90fa63")
+A_Button_Container.pack(side="top")
+
+
+
+
 def switch(x, y, z):
     
     z.delete(0, END)
     z.insert(0, x)
     z.config(background=y)
-    
+        
+A3Label = Label(A_Button_Container, text="A3", padx=3, fg=button_foreground, bg=button_background, image=UpIcon,  font=(button_font,button_font_size),  compound="top")
+A3Label.pack(side="left")
+A2Label = Label(A_Button_Container, text="A2", padx=3, fg=button_foreground, bg=button_background, image=UpIcon,  font=(button_font,button_font_size), compound="top")
+A2Label.pack(side="left")
+A1Label = Label(A_Button_Container, text="A1", padx=3, fg=button_foreground, bg=button_background, image=UpIcon,  font=(button_font,button_font_size), compound="top")
+A1Label.pack(side="left")
 
-Box_Container = Frame(window,background=box_background)
-Box_Container.pack()
+
+B_Button_Container = Frame(Box_Container)
+
+
+B3Label = Label(B_Button_Container,text="B3", padx=3, fg=button_foreground, bg=button_background, image=DownIcon,  font=(button_font,button_font_size),  compound="top")
+B3Label.pack(side="left")
+B2Label = Label(B_Button_Container, text="B2", padx=3, fg=button_foreground, bg=button_background, image=DownIcon, font=(button_font,button_font_size), compound="top")
+B2Label.pack(side="left")
+B1Label = Label(B_Button_Container, text="B1", padx=3, fg=button_foreground, bg=button_background, image=DownIcon,  font=(button_font,button_font_size), compound="top")
+B1Label.pack(side="left")
+
+I_Button_Container = Frame(Box_Container)
+I_Button_Container.pack(side="left")
+
+I1Label = Label(I_Button_Container, text="I1", padx=3, fg=button_foreground, bg=button_background, image=RightIcon,  font=(button_font,button_font_size), compound="right")
+I1Label.pack(side="top")
+I2Label = Label(I_Button_Container, text="I2", padx=3, fg=button_foreground, bg=button_background, image=RightIcon, font=(button_font,button_font_size), compound="right")
+I2Label.pack(side="top")
+I3Label = Label(I_Button_Container,text="I3", padx=3, fg=button_foreground, bg=button_background, image=RightIcon,  font=(button_font,button_font_size),  compound="right")
+I3Label.pack(side="top")
+
+
+
+
+
+
+
+
+
 
 # --- Relative Containers --- 
-Combo_526 = Frame(Box_Container)
+
 
 
 Container_C1_Relative = Frame(Box_Container)
@@ -109,6 +181,8 @@ Combo_526.pack(side="top")
 
 Container_C3_Relative.pack(side="top")
 Container_C4_Relative.pack(side="top")
+
+B_Button_Container.pack(side="top")
 
 # --- C1 Container --- 
 # Row Containers
@@ -339,6 +413,11 @@ ButtonC66.pack(side="left")
 ButtonC67.pack(side="left")
 ButtonC68.pack(side="left")
 ButtonC69.pack(side="left")
+
+#Shows the bottoms in the bottom
+
+
+
 
 
 
