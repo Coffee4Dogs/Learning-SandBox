@@ -1,0 +1,71 @@
+nos muestra una lista de los comandos
+docker -h  |  docker --help
+
+lista de imagenes que he descargado::
+docker images
+
+
+descarga una imagen: (si le ponemos un "-" especificamos la version)
+docker pull
+
+
+descargar una version en especifico ejemplo
+docker pull node:18
+
+
+eliminar imagenes:  (importante especificar repositorio y tag
+docker image rm node:18
+
+
+Crear un container: Ejemplo con mongo
+docker pull mongo 	(descargamos la imagen)
+docker create mongo 	(creamos el  container)
+
+
+Copiamos la mierda rara que sale ahi:
+11082a4985e16fe0011bf71c61b578bdaca2a21956803a487e4e55ddf68eec8f
+
+
+docker start y el mojon ese:
+docker start 11082a4985e16fe0011bf71c61b578bdaca2a21956803a487e4e55ddf68eec8f
+
+
+Seria bueno verificar si el contenedor esta corriendo.
+Este comando muestra una lista de los contenedores en ejecución junto con detalles como su identificador, nombre, estado, puertos mapeados y otros detalles relevantes.
+docker ps
+
+seria bueno detener el proceso. docker stop seguido del ID
+docker stop 11082a4985e1
+
+para correrlo nuevamente le damos
+docker run 11082a4985e1
+
+el contenedor sigue creado. pero el proceso se detuvo.
+entonces queremos ver ahora todos los contenedores existentes.
+docker ps -a
+
+nosotros siempre vamos a tener que hacer referencia al Container ID o al NAMES en la ultima columna.
+docker rm gracious_hodgkin
+
+por defecto se puso un nombre raro. Pongamosle un nombre nosotros. Luego la imagen.
+docker create --name monguito mongo
+
+ya no tenemos que usar el ID:
+96e2231dbb5906395f1f14fa184bf560caddd5913f8905e43caab99cecb9d03e
+podemos usar docker start monguito
+
+docker create -p (publish, para los puertos) primero el host, el anfitrion | luego el contenedor que queremos mapear.
+docker create -p27017:27017 --name monguito mongo
+
+
+si tienes onto contenedor, solo mapealo al siguiente puerto, porque puedes dejar que docker
+tome la decision docker create -p27017 --name monguito mongo, pero eso hace un relajo.
+Mejor solo mapealo al siguiente numero.
+
+Para detener estos contenedores usamos docker stop monguito
+
+Quiero saber si mi servidor se ejecuto correctamente. Puedo ver los logs del server.
+docker logs monguito
+
+si quiero seguir escuchando puedo usar:
+docker logs --follow
