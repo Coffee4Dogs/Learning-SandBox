@@ -96,9 +96,10 @@ COL6 =    ["COL6", blue, blue, blue,
 Box_Container = Frame(window,background=box_background, pady=20, padx=20)
 Box_Container.pack(pady=20)
 Combo_526 = Frame(Box_Container  ,background=box_background)
-#--- Switch Function ---
+#--- switch Function ---
 # x = C1[1], y = COL[1]
 # x = Position | y = Color
+
 
 
 
@@ -112,24 +113,49 @@ RightIcon = PhotoImage(file="Assets/right.png")
 RightIcon = RightIcon.subsample(26)
 
 
+
 A_Button_Container = Frame(Box_Container, background="#90fa63")
 A_Button_Container.pack(side="top")
 
 
 
-
+# Movement, Color, Button
 def switch(x, y, z):
     
     z.delete(0, END)
     z.insert(0, x)
     z.config(background=y)
+    
+
+    
+def MovA1():
+    print("Movimiento A1 Ejecutado...")
+    
+    
+    
+    
+    
+    
+    
+    
+    
+            
+            
+    
+def MovA2():
+    print("Movimiento A2 Ejecutado...")
+    
+def MovA3():
+    print("Movimiento A3 Ejecutado...")
         
-A3Label = Label(A_Button_Container, text="A3", padx=3, fg=button_foreground, bg=button_background, image=UpIcon,  font=(button_font,button_font_size),  compound="top")
-A3Label.pack(side="left")
-A2Label = Label(A_Button_Container, text="A2", padx=3, fg=button_foreground, bg=button_background, image=UpIcon,  font=(button_font,button_font_size), compound="top")
-A2Label.pack(side="left")
-A1Label = Label(A_Button_Container, text="A1", padx=3, fg=button_foreground, bg=button_background, image=UpIcon,  font=(button_font,button_font_size), compound="top")
-A1Label.pack(side="left")
+A1Button = Button(A_Button_Container, command=MovA1, text="A1", padx=3, fg=button_foreground, bg=button_background, image=UpIcon,  font=(button_font,button_font_size), compound="top")
+A1Button.pack(side="left")
+A2Button = Button(A_Button_Container, command=MovA2, text="A2", padx=3, fg=button_foreground, bg=button_background, image=UpIcon,  font=(button_font,button_font_size), compound="top")
+A2Button.pack(side="left")
+A3Button = Button(A_Button_Container, command=MovA3, text="A3", padx=3, fg=button_foreground, bg=button_background, image=UpIcon,  font=(button_font,button_font_size),  compound="top")
+A3Button.pack(side="left")
+
+
 
 
 B_Button_Container = Frame(Box_Container,background=box_background)
