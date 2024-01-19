@@ -8,7 +8,6 @@ int main()
                             {"Corvete", "Equinox", "Silverado"},
                             {"Challenger", "Durango", "Ram 1500"}};
 
-
     // std::cout << cars[0][0] << " ";
     // std::cout << cars[0][1] << " ";
     // std::cout << cars[0][2] << std::endl;
