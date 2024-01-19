@@ -24,12 +24,13 @@ int main()
     std::cout << "Rows " << rows << std::endl;
     std::cout << "Columns " << columns << std::endl;
 
+    std::cout << "\n" << std::endl;
 
     for(int i = 0; i < rows; i++){
         for(int j = 0; j < columns; j++){
             std::cout << cars[i][j] << std::endl;
         }
-
+        std::cout << "\n" << std::endl;
     }
 
 
