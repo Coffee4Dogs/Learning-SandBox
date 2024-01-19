@@ -18,6 +18,8 @@ int main()
     // std::cout << cars[2][1] << " ";
     // std::cout << cars[2][2] << std::endl;
 
+
+
     int rows = sizeof(cars)/sizeof(cars[0]);
     int columns = sizeof(cars[0])/sizeof(cars[0][0]);
 
