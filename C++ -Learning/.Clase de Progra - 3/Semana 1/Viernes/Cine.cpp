@@ -7,9 +7,10 @@ JS, SQLite, Prolog.
 Code, Compile, Run and Debug online from anywhere in world.
 *******************************************************************************/
 // Numero de Cuenta: 32011727
-// Nombre: Oscar F......
+// Nombre: Jack Hollmann Lagos Mejia
 #include <iostream>
-using namespace std;
+
+
 int main()
 {
 int amigos;
@@ -23,13 +24,21 @@ double total;
 const double isv = 0.15;
 const double descuento = 0.1;
 // palomitas y bebidas no excedan cantidad de amigos
-cout<<"Cine" << endl;
+std::cout << "Cine" << std::endl;
+
 // Solicitar datos y almacenar
-cout << "Ingrese cantidad de amigos: "; cin >> amigos;
-cout << "Ingrese cantidad de bebidas: "; cin >> cantidadBebidas;
-cout << "Ingrese cantidad de palomitas: "; cin >> cantidadPalomitas;
-cout << "Ingrese dia de semana: "; cin >> diaSemana;
-cout << "Ingrese metodo de Pago: "; cin >> metodoPago;
+std::cout << "Ingrese cantidad de amigos: " << 
+std::endl; 
+std::cin >> amigos;
+std::cout << "Ingrese cantidad de bebidas: "; 
+std::cin >> cantidadBebidas;
+std::cout << "Ingrese cantidad de palomitas: "; 
+std::cin >> cantidadPalomitas;
+std::cout << "Ingrese dia de semana: "; 
+std::cin >> diaSemana;
+std::cout << "Ingrese metodo de Pago: "; 
+std::cin >> metodoPago;
+
 // calculos
 // comida palomitas / bebidas <= amigos
 double totalComida;
@@ -38,8 +47,7 @@ totalComida = cantidadBebidas * precioBebida + cantidadPalomitas *
 precioPalomitas;
 }
 else {
-cout << "No puede comprar una cantidad mayor que la de sus amigos!! " <<
-endl;
+std::cout << "No puede comprar una cantidad mayor que la de sus amigos!! " << std::endl;
 totalComida = 0;
 }
 // entradas: lunes mitad de precio
@@ -49,17 +57,30 @@ totalEntradas = precioEntrada / 2 * amigos;
 } else {
 totalEntradas = precioEntrada * amigos;
 }
+
 total = totalComida + totalEntradas;
-cout << "Total Comida " << totalComida << endl;
-cout << "Total Entradas " << totalEntradas << endl;
-cout << "Sub Total " << total << endl;
-cout << "ISV " << (total * isv) << endl;
+std::cout << "Total Comida " << totalComida << std::endl;
+std::cout << "Total Entradas " << totalEntradas << std::endl;
+std::cout << "Sub Total " << total << std::endl;
+std::cout << "ISV " << (total * isv) << std::endl;
 double totalDescuento;
+
+
 if (metodoPago) {
-} else {
+    totalDescuento = total * descuento;
+} 
+
+else {
+    totalDescuento = 0;
 }
-cout << "Descuento " << (total * descuento) << endl;
-cout << "Gran Total " << << endl;
+
+std::cout << "Descuento " << (total * descuento) << std::endl;
+total = totalEntradas + totalComida - totalDescuento;
+
+std::cout << "Gran Total " << total << std::endl;
 // Escribir total
+
+
+
 return 0;
 }
