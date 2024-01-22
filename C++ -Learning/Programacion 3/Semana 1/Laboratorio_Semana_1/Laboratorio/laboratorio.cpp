@@ -153,7 +153,7 @@ void BubbleSort(int list[], int size){
 void Preguntar_Edad(){
     int i = 0;
     int edad;
-    while(i<0){
+    while(i<=0){
         std::cout << "Ingrese la edad: " << '\n';
         std::cin >> edad;
         if(edad >=5 && edad <= 17){
@@ -305,8 +305,21 @@ int main()
     
     
 
+    //------------ G ------------------ 
+    // Anteriormente le preguntamos la edad en el bono vacacional solo a aquellas
+    // personas que habian presentado la solicitud. Las que no entonces no se les 
+    // ha preguntado la edad.  (bool) --> *Bono_Vacacional*
 
 
+
+    if(Bono_Vacacional == false){
+        Preguntar_Edad();
+    }
+    else{
+    }
+    
+
+    
 
 
    
