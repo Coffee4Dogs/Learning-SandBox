@@ -268,7 +268,7 @@ int main()
         // Hacer el calculo, dandole los parametros hermano y edad
         Valor_Del_Bono_Vacacional = Calcular_Bono_Vacacional(hermanos, edad);
         if(Valor_Del_Bono_Vacacional != -1){
-            std::cout << "Valor del Bono Vacacional: " <<Valor_Del_Bono_Vacacional << '\n';
+            std::cout << "Valor del Bono Vacacional: " << Valor_Del_Bono_Vacacional << '\n';
         }
         else{
             std::cout << "Error al ingresar la cantidad de hermanos." << '\n';
@@ -310,14 +310,25 @@ int main()
     // personas que habian presentado la solicitud. Las que no entonces no se les 
     // ha preguntado la edad.  (bool) --> *Bono_Vacacional*
 
-
-
     if(Bono_Vacacional == false){
         Preguntar_Edad();
     }
     else{
     }
     
+    // 4. Incluya dentro del programa los cálculos necesarios para incluir los totales pagados en los
+    // diferentes bonos
+
+    // Total: Bono_Otorgado_Excelencia + Valor_Del_Bono_Vacacional
+    
+
+
+
+
+
+
+
+
 
     
 
