@@ -21,6 +21,7 @@ Ingrese en este espacio sus datos:
 int c = 0;
 
 
+int Estudiantes;
 
 
 
@@ -179,15 +180,24 @@ int main()
     //Inciso F:
     int Notas_De_Menor_a_Mayor[size];
     bool Aplica_Para_Tutorias;
-    int Estudiantes;
+    
+    
 
+    
     
 
     // ------------ H ------------------
     std::cout << "Ingrese la cantidad de estudiantes: " << '\n';
     std::cin >> Estudiantes;
+    
+    double Tabla1[Estudiantes][5] = {{}};
+    int Tabla1_Rows;
+    int Tabla1_Columns;
 
     for(int k = 0; k < Estudiantes; k++){
+        // Tabla1[k][0] = k+1;
+        // std::cout << "Estudiante: " << Tabla1[k][0] << '\n';
+
         // ------------ A ------------------
         Preguntar_Notas(Lista_de_Notas, size);
         promedio = CalcularPromedio(Lista_de_Notas, size);
@@ -198,6 +208,7 @@ int main()
         std::cout << "Ingrese la cantidad de dias que asistio el estudiante:" << '\n';
         std::cin >> Dias_Asistidos;
         Porcentaje_Asistencia_Anual = Calcular_Porcentaje_Asistencia_Anual(Dias_Asistidos);
+       
         std::cout << "El porcentaje de Asistencia anual es: ";
         std::cout << Porcentaje_Asistencia_Anual << std::endl;
         // ------------ C ------------------
@@ -234,8 +245,11 @@ int main()
         if(respuesta == 'y'){
             Bono_Vacacional = true;
         }
-        else{
+        else if(respuesta == 'n'){
             Bono_Vacacional = false;
+        }
+        else{
+            Bono_Vacacional =false;
         }
         // Se otorga a los alumnos que presentaron solicitud
         // y cuyo promedio anual fue mayor a 85%.
@@ -301,6 +315,7 @@ int main()
         // Total: Bono_Otorgado_Excelencia + Valor_Del_Bono_Vacacional
         std::cout << "***********************" << '\n';
         std::cout << "\n ***** Factura ***** " << std::endl;
+        std::cout << "Estudiante: #"<< k+1 << '\n';
         std::cout << "Bono por Excelencia: " << Bono_Otorgado_Excelencia << '\n';
         std::cout << "Edad: "<< edad << '\n';
         std::cout << "Hermanos: "<< hermanos << '\n';
@@ -309,15 +324,41 @@ int main()
         std::cout << "El total en todos los bonos es: "<< Total_Bonos << std::endl;
 
 
+        // Guardar en Registros
+        //Tabla 1 almacena las variables double.
+        Tabla1[k][0] = promedio;
+        Tabla1[k][1] = Porcentaje_Asistencia_Anual;
+        Tabla1[k][2] = Bono_Otorgado_Excelencia;
+        Tabla1[k][3] = Valor_Del_Bono_Vacacional;
+        Tabla1[k][4] = Total_Bonos;
+
+        
+        
+
     }
+    
+    
+    Tabla1_Rows = sizeof(Tabla1)/sizeof(Tabla1[0]);
+    Tabla1_Columns = sizeof(Tabla1[0])/sizeof(Tabla1[0][0]);
+
+
+    std::cout << "---------" << '\n';
+    
+    for(int i = 0; i < Tabla1_Rows; i++){
+        for(int j = 0; j < Tabla1_Columns; j++){
+            //Se muestran solo los registros de los estudiantes que fueron a clase y que tienen calificacion.
+            if( (Tabla1[i][0] > 0) && (Tabla1[i][1] > 0) ){
+                std::cout << Tabla1[i][j] << ", ";
+            }
+        }
+        std::cout << "\n";
+    }
+
+
  
- 
 
 
 
 
-
-
-   
     return 0;
 }
