@@ -7,6 +7,7 @@ Ingrese en este espacio sus datos:
 
 
 #include <iostream>
+
 // #include <iomanip>
 // #include <string>
 
@@ -19,8 +20,6 @@ Ingrese en este espacio sus datos:
 // using std::string;
 
 int c = 0;
-
-
 int Estudiantes;
 
 
@@ -160,7 +159,7 @@ int main()
     int Lista_de_Notas[4];
     int size = sizeof(Lista_de_Notas)/sizeof(Lista_de_Notas[0]);
     double promedio;
-    int Total_Bonos;
+    double Total_Bonos;
     std::string clasificacion;
     //Inciso B:
     int Dias_Asistidos;
@@ -172,7 +171,7 @@ int main()
     double Bono_Otorgado_Excelencia;
     //Inciso E:
     bool Bono_Vacacional;
-    bool Presento_Solicitud;
+    // bool Presento_Solicitud;
     char respuesta;
     int edad = 0;
     double Valor_Del_Bono_Vacacional; 
@@ -182,17 +181,33 @@ int main()
     bool Aplica_Para_Tutorias;
     
     
-
-    
-    
-
     // ------------ H ------------------
     std::cout << "Ingrese la cantidad de estudiantes: " << '\n';
     std::cin >> Estudiantes;
     
+    // Una tabla para cada tipo de variable.
+
+    // Tabla1: promedio, Porcentaje_Asistencia_Anual, Bono_Otorgado_Excelencia, Valor_Del_Bono_Vacacional , Total_Bonos
     double Tabla1[Estudiantes][5] = {{}};
     int Tabla1_Rows;
     int Tabla1_Columns;
+
+    //Tabla2: escuelita, Bono_Por_Excelencia, Bono_Vacacional, Aplica_Para_Tutorias
+    bool Tabla2[Estudiantes][4] = {{}};
+    int Tabla2_Rows;
+    int Tabla2_Columns;
+
+    //Tabla3: k (#Numero de estudiante), Dias_Asistidos, edad, hermanos
+    int Tabla3[Estudiantes][4] = {{}};
+    int Tabla3_Rows;
+    int Tabla3_Columns;
+
+    //Tabla4 (En caso de querer guardar las notas tambien, se puede hacer otra tabla que almacene las notas.)
+    //Creo que ya es mucha informacion asi que estos registros no los voy a guardar. Asumo que ya los tiene el docente.
+
+
+
+
 
     for(int k = 0; k < Estudiantes; k++){
         // Tabla1[k][0] = k+1;
@@ -297,7 +312,7 @@ int main()
             Notas_De_Menor_a_Mayor[i] = Lista_de_Notas[i];
         }
         BubbleSort(Notas_De_Menor_a_Mayor, size);
-        if(Notas_De_Menor_a_Mayor[0] < 70 && Notas_De_Menor_a_Mayor[1] < 70){
+        if( (Notas_De_Menor_a_Mayor[0] < 70)  &&  (Notas_De_Menor_a_Mayor[1] < 70) ){
             std::cout << "Las 2 notas mas bajas de este estudiante son: ";
             std::cout << Notas_De_Menor_a_Mayor[0] << ", " << Notas_De_Menor_a_Mayor[1] << "." << std::endl;
             Aplica_Para_Tutorias = true;
@@ -325,38 +340,76 @@ int main()
 
 
         // Guardar en Registros
-        //Tabla 1 almacena las variables double.
+            //Tabla 1 almacena las variables double.
+            // Tabla1: promedio, Porcentaje_Asistencia_Anual, Bono_Otorgado_Excelencia, Valor_Del_Bono_Vacacional , Total_Bonos
         Tabla1[k][0] = promedio;
         Tabla1[k][1] = Porcentaje_Asistencia_Anual;
         Tabla1[k][2] = Bono_Otorgado_Excelencia;
         Tabla1[k][3] = Valor_Del_Bono_Vacacional;
         Tabla1[k][4] = Total_Bonos;
+        
+        // Guardar en Registros
+            //Tabla 2 almacena las variables bool.
+            //Tabla2: escuelita, Bono_Por_Excelencia, Bono_Vacacional, Aplica_Para_Tutorias
+        Tabla2[k][0] = escuelita;
+        Tabla2[k][1] = Bono_Por_Excelencia;
+        Tabla2[k][2] = Bono_Vacacional;
+        Tabla2[k][3] = Aplica_Para_Tutorias;
 
-        
-        
+        // Guardar en Registros
+            // Tabla3 almacena las variables int.
+            //Tabla3: k (ID o Numero de estudiante), Dias_Asistidos, edad, hermanos
+        Tabla3[k][0] = k+1; //K vale 0 inicialmente. Vamos a suponer que nuestro primer ID sea 1.
+        Tabla3[k][1] = Dias_Asistidos;
+        Tabla3[k][2] = edad;
+        Tabla3[k][3] = hermanos;
+
 
     }
     
     
+
+    
+    
+
+
+    //Leer el tamaño de las tablas
     Tabla1_Rows = sizeof(Tabla1)/sizeof(Tabla1[0]);
     Tabla1_Columns = sizeof(Tabla1[0])/sizeof(Tabla1[0][0]);
+    Tabla2_Rows = sizeof(Tabla1)/sizeof(Tabla1[0]);
+    Tabla2_Columns = sizeof(Tabla1[0])/sizeof(Tabla1[0][0]);
+    Tabla3_Rows = sizeof(Tabla1)/sizeof(Tabla1[0]);
+    Tabla3_Columns = sizeof(Tabla1[0])/sizeof(Tabla1[0][0]);
 
-
-    std::cout << "---------" << '\n';
-    
+    // Imprimir Tablas
+    std::cout << "Multidimentional Arrays: Double" << '\n';
+    // Tabla1: promedio, Porcentaje_Asistencia_Anual, Bono_Otorgado_Excelencia, Valor_Del_Bono_Vacacional , Total_Bonos
     for(int i = 0; i < Tabla1_Rows; i++){
         for(int j = 0; j < Tabla1_Columns; j++){
-            //Se muestran solo los registros de los estudiantes que fueron a clase y que tienen calificacion.
-            if( (Tabla1[i][0] > 0) && (Tabla1[i][1] > 0) ){
-                std::cout << Tabla1[i][j] << ", ";
-            }
+            std::cout << Tabla1[i][j] << ", ";
         }
         std::cout << "\n";
     }
 
+    std::cout << "Multidimentional Arrays: Boolean" << '\n';
 
- 
+    //Tabla2: escuelita, Bono_Por_Excelencia, Bono_Vacacional, Aplica_Para_Tutorias
+    for(int i = 0; i < Tabla2_Rows; i++){
+        for(int j = 0; j < Tabla2_Columns; j++){
+            std::cout << Tabla2[i][j] << ", ";
+        }
+        std::cout << "\n";
+    }
 
+    std::cout << "Multidimentional Arrays: Int" << '\n';
+
+    //Tabla3: k (ID o Numero de estudiante), Dias_Asistidos, edad, hermanos
+    for(int i = 0; i < Tabla3_Rows; i++){
+        for(int j = 0; j < Tabla3_Columns; j++){
+            std::cout << Tabla3[i][j] << ", ";
+        }
+        std::cout << "\n";
+    }
 
 
 
