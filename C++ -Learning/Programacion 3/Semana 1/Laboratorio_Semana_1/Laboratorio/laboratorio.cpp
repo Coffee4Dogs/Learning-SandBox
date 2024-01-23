@@ -199,128 +199,262 @@ int main()
     //Inciso F:
     int Notas_De_Menor_a_Mayor[size];
     bool Aplica_Para_Tutorias;
+    int Estudiantes;
 
 
- 
-    // ------------ A ------------------
-    Preguntar_Notas(Lista_de_Notas, size);
-    promedio = CalcularPromedio(Lista_de_Notas, size);
-    std::cout << "El promedio del estudiante es: "<< promedio << "% , ";
-    clasificacion = clasificar_por_promedio(promedio);
-    std::cout << "Clasificacion: " << clasificacion << std::endl;
-    // ------------ B ------------------
-    std::cout << "Ingrese la cantidad de dias que asistio el estudiante:" << '\n';
-    std::cin >> Dias_Asistidos;
-    Porcentaje_Asistencia_Anual = Calcular_Porcentaje_Asistencia_Anual(Dias_Asistidos);
-    std::cout << "El porcentaje de Asistencia anual es: ";
-    std::cout << Porcentaje_Asistencia_Anual << std::endl;
-    // ------------ C ------------------
-    escuelita = Va_A_La_Escuelita(promedio);
-    if(escuelita == true){
-        std::cout << "El estudiante va a la escuelita." << '\n';
-    }
-    else{
-        std::cout << "El estudiante no va a la escuelita." << '\n';
-    }
-    // ------------ D ------------------ 
-    // Determinar si el estudiante tendra bono por excelencia
-    if(Porcentaje_Asistencia_Anual > 90 && promedio >= 95){
-        Bono_Por_Excelencia = true;
-        std::cout << "Se asigno bono por Excelencia" << '\n';
-    }
-    else{
-        Bono_Por_Excelencia = false;
-        std::cout << "No se asigno bono por excelencia." << '\n';
-    }
-    // La variable *Bono_Otorgado_Excelencia* servira en un futuro.
-    Bono_Otorgado_Excelencia = Calcular_Bono_Otorgado_Excelencia(Bono_Por_Excelencia); 
-    if(Bono_Por_Excelencia == true){
-        std::cout << "El bono por excelencia es: " << Bono_Otorgado_Excelencia << '\n';
-    }
-    else{
-        std::cout << "El bono por excelencia es: "<< Bono_Otorgado_Excelencia << '\n';
-    }
-    // ------------ E ------------------
-    // Le preguntamos en lenguaje humano "y/n" y guardamos en una boolean, porque el ejercicio asi lo pide.
-    std::cout << "¿El alumno presento solicitud vacacional?" << '\n';
-    std::cout << "y/n" << '\n';
-    std::cin >> respuesta;
-    if(respuesta == 'y'){
-        Bono_Vacacional = true;
-    }
-    else{
-        Bono_Vacacional = false;
-    }
-    // Se otorga a los alumnos que presentaron solicitud
-    // y cuyo promedio anual fue mayor a 85%.
-    if(Bono_Vacacional == true && promedio > 85){
-        std::cout << "El estudiante SI aplica al *Bono Vacacional*" << '\n';
-        // Preguntar por la Edad;
-        while(c<=0){
-            std::cout << "Ingrese una edad entre 5 y 17 anos: " << '\n';
-            std::cin >> edad;
-            if(edad >=5 && edad <= 17){
-                c = 1;
-            }
-            else{
-                c = 0;
-            }
-        }
-        c = 0;
-        std::cout << "¿Cuantos hermanos tiene?" << '\n';
-        std::cin >> hermanos;
-        // Hacer el calculo, dandole los parametros hermano y edad
-        Valor_Del_Bono_Vacacional = Calcular_Bono_Vacacional(hermanos, edad);
-        if(Valor_Del_Bono_Vacacional != -1){
-            std::cout << "Valor del Bono Vacacional: " << Valor_Del_Bono_Vacacional << '\n';
+    // ------------ H ------------------
+    // Complete el programa de manera que pueda realizar las operaciones para varios
+    // alumnos, dependiendo de una cantidad ingresada al inicio del programa.
+    // Investigue uso de ciclo for
+    std::cout << "Ingrese la cantidad de estudiantes: " << '\n';
+    std::cin >> Estudiantes;
+
+    for(int k = 0; k < Estudiantes; k++){
+        // ------------ A ------------------
+        Preguntar_Notas(Lista_de_Notas, size);
+        promedio = CalcularPromedio(Lista_de_Notas, size);
+        std::cout << "El promedio del estudiante es: "<< promedio << "% , ";
+        clasificacion = clasificar_por_promedio(promedio);
+        std::cout << "Clasificacion: " << clasificacion << std::endl;
+        // ------------ B ------------------
+        std::cout << "Ingrese la cantidad de dias que asistio el estudiante:" << '\n';
+        std::cin >> Dias_Asistidos;
+        Porcentaje_Asistencia_Anual = Calcular_Porcentaje_Asistencia_Anual(Dias_Asistidos);
+        std::cout << "El porcentaje de Asistencia anual es: ";
+        std::cout << Porcentaje_Asistencia_Anual << std::endl;
+        // ------------ C ------------------
+        escuelita = Va_A_La_Escuelita(promedio);
+        if(escuelita == true){
+            std::cout << "El estudiante va a la escuelita." << '\n';
         }
         else{
-            std::cout << "Error al ingresar la cantidad de hermanos." << '\n';
+            std::cout << "El estudiante no va a la escuelita." << '\n';
         }
-    }
-    else{
-        std::cout << "El estudiante NO aplica al *Bono Vacacional*" << '\n';
-        while(c<=0){
-            std::cout << "Ingrese una edad entre 5 y 17 anos: " << '\n';
-            std::cin >> edad;
-            if(edad >=5 && edad <= 17){
-                c = 1;
+        // ------------ D ------------------ 
+        // Determinar si el estudiante tendra bono por excelencia
+        if(Porcentaje_Asistencia_Anual > 90 && promedio >= 95){
+            Bono_Por_Excelencia = true;
+            std::cout << "Se asigno bono por Excelencia" << '\n';
+        }
+        else{
+            Bono_Por_Excelencia = false;
+            std::cout << "No se asigno bono por excelencia." << '\n';
+        }
+        // La variable *Bono_Otorgado_Excelencia* servira en un futuro.
+        Bono_Otorgado_Excelencia = Calcular_Bono_Otorgado_Excelencia(Bono_Por_Excelencia); 
+        if(Bono_Por_Excelencia == true){
+            std::cout << "El bono por excelencia es: " << Bono_Otorgado_Excelencia << '\n';
+        }
+        else{
+            std::cout << "El bono por excelencia es: "<< Bono_Otorgado_Excelencia << '\n';
+        }
+        // ------------ E ------------------
+        // Le preguntamos en lenguaje humano "y/n" y guardamos en una boolean, porque el ejercicio asi lo pide.
+        std::cout << "¿El alumno presento solicitud vacacional?" << '\n';
+        std::cout << "y/n" << '\n';
+        std::cin >> respuesta;
+        if(respuesta == 'y'){
+            Bono_Vacacional = true;
+        }
+        else{
+            Bono_Vacacional = false;
+        }
+        // Se otorga a los alumnos que presentaron solicitud
+        // y cuyo promedio anual fue mayor a 85%.
+        if(Bono_Vacacional == true && promedio > 85){
+            std::cout << "El estudiante SI aplica al *Bono Vacacional*" << '\n';
+            // Preguntar por la Edad;
+            while(c<=0){
+                std::cout << "Ingrese una edad entre 5 y 17 anos: " << '\n';
+                std::cin >> edad;
+                if(edad >=5 && edad <= 17){
+                    c = 1;
+                }
+                else{
+                    c = 0;
+                }
+            }
+            c = 0;
+            std::cout << "¿Cuantos hermanos tiene?" << '\n';
+            std::cin >> hermanos;
+            // Hacer el calculo, dandole los parametros hermano y edad
+            Valor_Del_Bono_Vacacional = Calcular_Bono_Vacacional(hermanos, edad);
+            if(Valor_Del_Bono_Vacacional != -1){
+                std::cout << "Valor del Bono Vacacional: " << Valor_Del_Bono_Vacacional << '\n';
             }
             else{
-                c = 0;
+                std::cout << "Error al ingresar la cantidad de hermanos." << '\n';
             }
         }
-        c = 0;
-    } 
-//------------ F ------------------ 
-// Determinar si un alumno aplica a tutoria. Para aplicar a tutoria los estudiantes
-// deben tener una nota menor a 70 en al menos dos parciales y deben haber
-// reprobado la clase. 
-    for(int i = 0; i < size; i++){
-        Notas_De_Menor_a_Mayor[i] = Lista_de_Notas[i];
-    }
-    BubbleSort(Notas_De_Menor_a_Mayor, size);
-    if(Notas_De_Menor_a_Mayor[0] < 70 && Notas_De_Menor_a_Mayor[1] < 70){
-        std::cout << "Las 2 notas mas bajas de este estudiante son: ";
-        std::cout << Notas_De_Menor_a_Mayor[0] << ", " << Notas_De_Menor_a_Mayor[1] << "." << std::endl;
-        Aplica_Para_Tutorias = true;
-    }
-    else{
-        Aplica_Para_Tutorias = false;
-    }
+        else{
+            std::cout << "El estudiante NO aplica al *Bono Vacacional*" << '\n';
+            while(c<=0){
+                std::cout << "Ingrese una edad entre 5 y 17 anos: " << '\n';
+                std::cin >> edad;
+                if(edad >=5 && edad <= 17){
+                    c = 1;
+                }
+                else{
+                    c = 0;
+                }
+            }
+            c = 0;
+        } 
+        //------------ F ------------------ 
+        // Determinar si un alumno aplica a tutoria. Para aplicar a tutoria los estudiantes
+        // deben tener una nota menor a 70 en al menos dos parciales  
+        for(int i = 0; i < size; i++){
+            Notas_De_Menor_a_Mayor[i] = Lista_de_Notas[i];
+        }
+        BubbleSort(Notas_De_Menor_a_Mayor, size);
+        if(Notas_De_Menor_a_Mayor[0] < 70 && Notas_De_Menor_a_Mayor[1] < 70){
+            std::cout << "Las 2 notas mas bajas de este estudiante son: ";
+            std::cout << Notas_De_Menor_a_Mayor[0] << ", " << Notas_De_Menor_a_Mayor[1] << "." << std::endl;
+            Aplica_Para_Tutorias = true;
+        }
+        else{
+            Aplica_Para_Tutorias = false;
+        }
+        (Aplica_Para_Tutorias == true && promedio < 70) ? Aplica_Para_Tutorias = true : Aplica_Para_Tutorias = false;
+        std::cout << "Aplica para tutorias: ";
+        Aplica_Para_Tutorias ? std::cout << "SI" << std::endl : std::cout << "NO" << '\n';
 
-    // 4. Incluya dentro del programa los cálculos necesarios para incluir los totales pagados en los
-    // diferentes bonos
 
-    // Total: Bono_Otorgado_Excelencia + Valor_Del_Bono_Vacacional
-    std::cout << "***********************" << '\n';
-    std::cout << "\n ***** Factura ***** " << std::endl;
-    std::cout << "Bono por Excelencia: " << Bono_Otorgado_Excelencia << '\n';
-    std::cout << "Edad: "<< edad << '\n';
-    std::cout << "Hermanos: "<< hermanos << '\n';
-    std::cout << "Bono Vacacional: " << Valor_Del_Bono_Vacacional << '\n';
-    Total_Bonos = Bono_Otorgado_Excelencia + Valor_Del_Bono_Vacacional;
-    std::cout << "El total en todos los bonos es: "<< Total_Bonos << std::endl;
+        // 4. Incluya dentro del programa los cálculos necesarios para incluir los totales pagados en los
+        // diferentes bonos
+
+        // Total: Bono_Otorgado_Excelencia + Valor_Del_Bono_Vacacional
+        std::cout << "***********************" << '\n';
+        std::cout << "\n ***** Factura ***** " << std::endl;
+        std::cout << "Bono por Excelencia: " << Bono_Otorgado_Excelencia << '\n';
+        std::cout << "Edad: "<< edad << '\n';
+        std::cout << "Hermanos: "<< hermanos << '\n';
+        std::cout << "Bono Vacacional: " << Valor_Del_Bono_Vacacional << '\n';
+        Total_Bonos = Bono_Otorgado_Excelencia + Valor_Del_Bono_Vacacional;
+        std::cout << "El total en todos los bonos es: "<< Total_Bonos << std::endl;
+
+
+    }
+ 
+//     // ------------ A ------------------
+//     Preguntar_Notas(Lista_de_Notas, size);
+//     promedio = CalcularPromedio(Lista_de_Notas, size);
+//     std::cout << "El promedio del estudiante es: "<< promedio << "% , ";
+//     clasificacion = clasificar_por_promedio(promedio);
+//     std::cout << "Clasificacion: " << clasificacion << std::endl;
+//     // ------------ B ------------------
+//     std::cout << "Ingrese la cantidad de dias que asistio el estudiante:" << '\n';
+//     std::cin >> Dias_Asistidos;
+//     Porcentaje_Asistencia_Anual = Calcular_Porcentaje_Asistencia_Anual(Dias_Asistidos);
+//     std::cout << "El porcentaje de Asistencia anual es: ";
+//     std::cout << Porcentaje_Asistencia_Anual << std::endl;
+//     // ------------ C ------------------
+//     escuelita = Va_A_La_Escuelita(promedio);
+//     if(escuelita == true){
+//         std::cout << "El estudiante va a la escuelita." << '\n';
+//     }
+//     else{
+//         std::cout << "El estudiante no va a la escuelita." << '\n';
+//     }
+//     // ------------ D ------------------ 
+//     // Determinar si el estudiante tendra bono por excelencia
+//     if(Porcentaje_Asistencia_Anual > 90 && promedio >= 95){
+//         Bono_Por_Excelencia = true;
+//         std::cout << "Se asigno bono por Excelencia" << '\n';
+//     }
+//     else{
+//         Bono_Por_Excelencia = false;
+//         std::cout << "No se asigno bono por excelencia." << '\n';
+//     }
+//     // La variable *Bono_Otorgado_Excelencia* servira en un futuro.
+//     Bono_Otorgado_Excelencia = Calcular_Bono_Otorgado_Excelencia(Bono_Por_Excelencia); 
+//     if(Bono_Por_Excelencia == true){
+//         std::cout << "El bono por excelencia es: " << Bono_Otorgado_Excelencia << '\n';
+//     }
+//     else{
+//         std::cout << "El bono por excelencia es: "<< Bono_Otorgado_Excelencia << '\n';
+//     }
+//     // ------------ E ------------------
+//     // Le preguntamos en lenguaje humano "y/n" y guardamos en una boolean, porque el ejercicio asi lo pide.
+//     std::cout << "¿El alumno presento solicitud vacacional?" << '\n';
+//     std::cout << "y/n" << '\n';
+//     std::cin >> respuesta;
+//     if(respuesta == 'y'){
+//         Bono_Vacacional = true;
+//     }
+//     else{
+//         Bono_Vacacional = false;
+//     }
+//     // Se otorga a los alumnos que presentaron solicitud
+//     // y cuyo promedio anual fue mayor a 85%.
+//     if(Bono_Vacacional == true && promedio > 85){
+//         std::cout << "El estudiante SI aplica al *Bono Vacacional*" << '\n';
+//         // Preguntar por la Edad;
+//         while(c<=0){
+//             std::cout << "Ingrese una edad entre 5 y 17 anos: " << '\n';
+//             std::cin >> edad;
+//             if(edad >=5 && edad <= 17){
+//                 c = 1;
+//             }
+//             else{
+//                 c = 0;
+//             }
+//         }
+//         c = 0;
+//         std::cout << "¿Cuantos hermanos tiene?" << '\n';
+//         std::cin >> hermanos;
+//         // Hacer el calculo, dandole los parametros hermano y edad
+//         Valor_Del_Bono_Vacacional = Calcular_Bono_Vacacional(hermanos, edad);
+//         if(Valor_Del_Bono_Vacacional != -1){
+//             std::cout << "Valor del Bono Vacacional: " << Valor_Del_Bono_Vacacional << '\n';
+//         }
+//         else{
+//             std::cout << "Error al ingresar la cantidad de hermanos." << '\n';
+//         }
+//     }
+//     else{
+//         std::cout << "El estudiante NO aplica al *Bono Vacacional*" << '\n';
+//         while(c<=0){
+//             std::cout << "Ingrese una edad entre 5 y 17 anos: " << '\n';
+//             std::cin >> edad;
+//             if(edad >=5 && edad <= 17){
+//                 c = 1;
+//             }
+//             else{
+//                 c = 0;
+//             }
+//         }
+//         c = 0;
+//     } 
+// //------------ F ------------------ 
+// // Determinar si un alumno aplica a tutoria. Para aplicar a tutoria los estudiantes
+// // deben tener una nota menor a 70 en al menos dos parciales y deben haber
+// // reprobado la clase. 
+//     for(int i = 0; i < size; i++){
+//         Notas_De_Menor_a_Mayor[i] = Lista_de_Notas[i];
+//     }
+//     BubbleSort(Notas_De_Menor_a_Mayor, size);
+//     if(Notas_De_Menor_a_Mayor[0] < 70 && Notas_De_Menor_a_Mayor[1] < 70){
+//         std::cout << "Las 2 notas mas bajas de este estudiante son: ";
+//         std::cout << Notas_De_Menor_a_Mayor[0] << ", " << Notas_De_Menor_a_Mayor[1] << "." << std::endl;
+//         Aplica_Para_Tutorias = true;
+//     }
+//     else{
+//         Aplica_Para_Tutorias = false;
+//     }
+
+//     // 4. Incluya dentro del programa los cálculos necesarios para incluir los totales pagados en los
+//     // diferentes bonos
+
+//     // Total: Bono_Otorgado_Excelencia + Valor_Del_Bono_Vacacional
+//     std::cout << "***********************" << '\n';
+//     std::cout << "\n ***** Factura ***** " << std::endl;
+//     std::cout << "Bono por Excelencia: " << Bono_Otorgado_Excelencia << '\n';
+//     std::cout << "Edad: "<< edad << '\n';
+//     std::cout << "Hermanos: "<< hermanos << '\n';
+//     std::cout << "Bono Vacacional: " << Valor_Del_Bono_Vacacional << '\n';
+//     Total_Bonos = Bono_Otorgado_Excelencia + Valor_Del_Bono_Vacacional;
+//     std::cout << "El total en todos los bonos es: "<< Total_Bonos << std::endl;
 
 
 
