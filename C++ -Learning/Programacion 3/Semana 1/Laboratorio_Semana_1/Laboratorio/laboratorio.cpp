@@ -18,7 +18,7 @@ Ingrese en este espacio sus datos:
 // using std::fixed; 
 // using std::string;
 
-
+int c = 0;
 
 
 
@@ -150,22 +150,27 @@ void BubbleSort(int list[], int size){
     }
 }
 
-void Preguntar_Edad(){
-    int i = 0;
-    int edad;
-    while(i<=0){
-        std::cout << "Ingrese la edad: " << '\n';
-        std::cin >> edad;
-        if(edad >=5 && edad <= 17){
-            i = 1;
-        }
-        else{
-            i = 0;
-        }
+// void Preguntar_Edad_Nuevamente(){
+//     std::cout << "Ingrese la edad: " << '\n';
+// }
 
-    }
+// int Preguntar_Edad(){
+//     int  = 0;
+//     int edad;
+//     while(i<=0){
+        
+//         std::cin >> edad;
+//         if(edad >=5 && edad <= 17){
+//             i = 1;
+//         }
+//         else{
+//             i = 0;
+//         }
+
+//     }
+//     return edad;
     
-}
+// }
 
 int main()
 {
@@ -262,7 +267,25 @@ int main()
     // y cuyo promedio anual fue mayor a 85%.
     if(Bono_Vacacional == true && promedio > 85){
         std::cout << "El estudiante SI aplica al *Bono Vacacional*" << '\n';
-        Preguntar_Edad();
+        
+        // Preguntar por la Edad;
+        
+        while(c<=0){
+            std::cout << "Ingrese una edad entre 5 y 17 anos: " << '\n';
+            std::cin >> edad;
+            if(edad >=5 && edad <= 17){
+                c = 1;
+            }
+            else{
+                c = 0;
+            }
+
+        }
+        c = 0;
+
+
+
+
         std::cout << "¿Cuantos hermanos tiene?" << '\n';
         std::cin >> hermanos;
         // Hacer el calculo, dandole los parametros hermano y edad
@@ -311,7 +334,18 @@ int main()
     // ha preguntado la edad.  (bool) --> *Bono_Vacacional*
 
     if(Bono_Vacacional == false){
-        Preguntar_Edad();
+        while(c<=0){
+            std::cout << "Ingrese una edad entre 5 y 17 anos: " << '\n';
+            std::cin >> edad;
+            if(edad >=5 && edad <= 17){
+                c = 1;
+            }
+            else{
+                c = 0;
+            }
+
+        }
+        c = 0;
     }
     else{
     }
@@ -336,4 +370,3 @@ int main()
    
     return 0;
 }
-
