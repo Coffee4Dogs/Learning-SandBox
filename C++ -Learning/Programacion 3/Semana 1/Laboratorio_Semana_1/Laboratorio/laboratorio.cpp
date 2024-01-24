@@ -8,24 +8,19 @@ Ingrese en este espacio sus datos:
 
 #include <iostream>
 #include <ctime>
+#include <iomanip>
 
-// #include <iomanip>
-// #include <string>
 
-// using std::cout;  
-// using std::cin;  
-// using std::endl;  
-// using std::setprecision;  
-// using std::setw;  
-// using std::fixed; 
-// using std::string;
 
 int c = 0;
 int Estudiantes;
 char porc = '%';
 const int AÑO_ESCOLAR = 200;
 
-
+int total_reprobados = 0;
+int total_reconocimiento = 0;
+int total_escuelita = 0;
+int total_bono_vacacional = 0;
 
 
 
@@ -68,6 +63,8 @@ std::string clasificar_por_promedio(int Promedio_Estudiante){
     }
     return clasificacion;
 }
+
+
 
 // Calcula porcentaje de asistencia anual si le damos el parametro dias asistidos
 double Calcular_Porcentaje_Asistencia_Anual(int Dias_Asistidos){
@@ -152,19 +149,19 @@ std::string rand_answer(int x){
     //Cambiando la semilla de los numeros random por la hora del sistema.
     
     switch(x){
-        case 1: return "¡Vamooooo!\n";  break;
-        case 2: return "Perfecto. ^.^ \n"; break;
-        case 3: return "Naci mas que listo.\n"; break;
-        case 4: return "Excelente. Siiuuuu...\n";  break;
-        case 5: return "Ok.    :)\n"; break;
-        case 6: return ":~ $ sudo apt-get update\n"; break;
+        case 1: return "Frase motivacional aleatoria:\n \t La pregunta no es quien me va a dejar; es quien va a detenerme.\n \t- Ayn Rand\n";  break;
+        case 2: return "Frase motivacional aleatoria:\n \t El exito no se logra solo con cualidades especiales. Es, sobre todo, un trabajo de constancia, de metodo y de organizacion.\n \t- Victor Hugo\n"; break;
+        case 3: return "Frase motivacional aleatoria:\n \t Si no puedes volar, corre; si no puedes correr, camina; si no puedes caminar, gatea, pero sigue avanzando hacia tu meta.\n \t- Martin Luther King\n"; break;
+        case 4: return "Frase motivacional aleatoria:\n \t Solo imagina lo precioso que puede ser arriesgarse y que todo salga bien.\n \t - Mario Benedetti.\n";  break;
+        case 5: return "Frase motivacional aleatoria:\n \t Vale mas actuar exponiendose a arrepentirse de ello, que arrepentirse de no haber hecho nada.\n \t- Giovanni Boccaccio\n"; break;
+        case 6: return "Frase motivacional aleatoria:\n \t :~ $ sudo apt-get update\n \t- Seguramente algun usuario de linux. (Easter Egg)\n"; break; //easter egg
     }
 }
 
 
 int main()
 {
-    
+    std::cout << std::setprecision(4);
     //Inciso A:
     int Lista_de_Notas[4];
     int size = sizeof(Lista_de_Notas)/sizeof(Lista_de_Notas[0]);
@@ -189,6 +186,12 @@ int main()
     //Inciso F:
     int Notas_De_Menor_a_Mayor[size];
     bool Aplica_Para_Tutorias;
+    //--8--
+    //Evaluacion al docente
+    int Puntos_Maestro = 0;
+    char Metodo_ensenar = 'n'; //(Didactica)
+    char Conocimiento_Materia = 'n'; //(Conocimiento de la materia)
+    char Manera_Evaluar = 'n'; //(Evaluacion)
     
     
     // ------------ H ------------------
@@ -196,9 +199,9 @@ int main()
     std::cin >> Estudiantes;
     
     // Una tabla para cada tipo de variable.
-
+    //Tabla int para truncar las variables double. De lo contrario en algunos casos mostrara una e.
     // Tabla1: promedio, Porcentaje_Asistencia_Anual, Bono_Otorgado_Excelencia, Valor_Del_Bono_Vacacional , Total_Bonos
-    double Tabla1[Estudiantes][5] = {{}};
+    int Tabla1[Estudiantes][6] = {{}};
     int Tabla1_Rows;
     int Tabla1_Columns;
 
@@ -235,6 +238,16 @@ int main()
         promedio = CalcularPromedio(Lista_de_Notas, size);
         std::cout << "El promedio del estudiante es: "<< promedio << "% , ";
         clasificacion = clasificar_por_promedio(promedio);
+
+        if(clasificacion == "Excelente"){
+            total_reconocimiento += 1;
+        }
+        else if(clasificacion == "Reprobado"){
+            total_reprobados += 1;
+        }
+        else{
+        }
+
         std::cout << "Clasificacion: " << clasificacion << std::endl;
         // ------------ B ------------------
         std::cout << "Ingrese la cantidad de dias que asistio el estudiante:" << '\n';
@@ -247,6 +260,7 @@ int main()
         escuelita = Va_A_La_Escuelita(promedio);
         if(escuelita == true){
             std::cout << "El estudiante va a la escuelita." << '\n';
+            total_escuelita += 1;
         }
         else{
             std::cout << "El estudiante no va a la escuelita." << '\n';
@@ -287,6 +301,7 @@ int main()
         // y cuyo promedio anual fue mayor a 85%.
         if(Bono_Vacacional == true && promedio > 85){
             std::cout << "El estudiante SI aplica al *Bono Vacacional*" << '\n';
+            total_bono_vacacional += 1;
             // Preguntar por la Edad;
             while(c<=0){
                 std::cout << "Ingrese una edad entre 5 y 17 anos: " << '\n';
@@ -412,12 +427,13 @@ int main()
     for(int i = 0; i < Estudiantes; i++){
         std::string clas_temp;
         std::cout << "Estudiante #"<< Tabla3[i][0];
-        std::cout << " | Promedio: "<< Tabla1[i][0];
+        std::cout << " | Promedio: "  << Tabla1[i][0];
         clas_temp = clasificar_por_promedio(Tabla1[i][0]); std::cout << " | Clasificacion: "<< clas_temp;
-        std::cout <<" | Asistencia Anual: "<< Tabla1[i][1] << porc;
+        std::cout << " | Asistencia Anual: " << Tabla1[i][1] << porc;
         std::cout << " | Escuelita: "; (Tabla2[i][0]) ? std::cout << "Si" : std::cout << "No";
-        std::cout << " | Bono Excelencia: "; (Tabla3[i][1]) ? std::cout << "Si" : std::cout << "No";
-        std::cout << " | Cant. Bono Excelencia: "<< Tabla1[i][2];
+        std::cout << " | Tiene Bono Excelencia: ";
+        (Tabla1[i][2] != 0) ? std::cout << " Si" : std::cout << " No";
+        std::cout << " | Cant. Bono Excelencia: "  << Tabla1[i][2];
         std::cout << " | Edad: "<< Tabla3[i][2];
         std::cout << " | Hermanos: "<< Tabla3[i][3];
         std::cout << " | Cant. Bono Vacacional: "<< Tabla3[i][3];
@@ -425,12 +441,63 @@ int main()
         std::cout << " | Total en Bonos: "<< Tabla1[i][4];
         std::cout << "\n--------------------------------------------" << std::endl;
 
-
         std::cout << "\n";
+    }
+
+    std::cout << "Total de Reprobados: "<< total_reprobados << '\n';
+    std::cout << "Total de Reconocimiento: "<< total_reconocimiento << '\n';
+    std::cout << "Total de Escuelita: "<< total_escuelita << '\n';
+    std::cout << "Total de Bono Vacacional: "<< total_bono_vacacional << '\n';
+
+
+    // --------7------------
+    // Evaluacion al Docente
+    std::cout << "----------------------\nEvaluacion al docente:\n";
+    std::cout << "Le gusto el metodo de ensenar del docente? Tiene buena didactica? Es comunicativo con los estudiantes?\ny/n" << '\n';
+    std::cin >> Metodo_ensenar;
+    (Metodo_ensenar == 'y') ? Puntos_Maestro += 1 : Puntos_Maestro = Puntos_Maestro;
+    std::cout << "El docente muestra tener buen conocimiento de la materia?\ny/n" << '\n';
+    std::cin >> Conocimiento_Materia;
+    (Conocimiento_Materia == 'y') ? Puntos_Maestro += 1 : Puntos_Maestro = Puntos_Maestro;
+    std::cout << "Esta de acuerdo con la forma de evaluar del docente? Es la mas adecuada para la materia?\ny/n" << '\n';
+    std::cin >> Manera_Evaluar;
+    (Manera_Evaluar == 'y') ? Puntos_Maestro += 1 : Puntos_Maestro = Puntos_Maestro;
+    std::cout << "El docente esta en categoria: ";
+    if(Puntos_Maestro == 3){
+        std::cout << "Excelente" << '\n';
+    }
+    else if(Puntos_Maestro == 2){
+        std::cout << "Bueno" << '\n';
+    }
+    else if(Puntos_Maestro == 1){
+        std::cout << "Regular" << '\n';
+    }
+    else{
+        std::cout << "Malo" << '\n';
     }
 
 
 
+    //-----8----------
+    // Explique en un comentario dentro del programa (no tiene que programar) de qué manera
+    // se podría modificar el programa si en lugar de leer los datos para una asignatura se tuvieran
+    // que leer para varias asignaturas impartidas por diferentes maestros.
+    
+    //Respuesta:
+        // Si se desea agregar asignaturas al programa primero planificaria como voy a estructurar
+        // el programa. Trataria de planificar como voy a llevar los registros de las asignaturas,
+        // si voy a usar clases o si es mejor seguir utilizando arreglos bidimencionales.
 
+        // Luego de conciderar cual opcion es mejor, concideraria limpiar mi codigo. Trataria de
+        // reducir mi codigo de alguna manera pero sin quitarle funcionalidad y siempre asegurandome
+        // que sea legible.
+
+        // Una vez que tenga la 1. Planificacion y 2. depurar y optimizar mi codigo; empezaria a
+        // implementar las asignaturas.
+
+
+
+
+    std::cout << "Fin del programa...\n" << '\n';
     return 0;
 }

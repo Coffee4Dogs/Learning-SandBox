@@ -1,16 +1,10 @@
 #include <iostream>
-#include <ctime>
+#include <iomanip>
 
-int random_number;
+int main() 
+{
+    double pi = 3.14159265359;
 
-int main() {
-    //cambiando la seed/semilla de nuestra funcion random. usando la funcion time como semilla.
-    srand(time(NULL));
-
-    random_number = (rand()%3)+1;
-
-    std::cout << random_number << '\n';
-
-
+    std::cout << std::setprecision(3) << pi << std::endl;
     return 0;
 }
