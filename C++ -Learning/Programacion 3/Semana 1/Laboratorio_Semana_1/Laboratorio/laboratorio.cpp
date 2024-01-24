@@ -150,7 +150,7 @@ void BubbleSort(int list[], int size){
 //Caja de saludos
 std::string rand_answer(int x){
     //Cambiando la semilla de los numeros random por la hora del sistema.
-    char '/'
+    
     switch(x){
         case 1: return "¡Vamooooo!\n";  break;
         case 2: return "Perfecto. ^.^ \n"; break;
@@ -219,12 +219,13 @@ int main()
     //Saludo
     //Esto me va a dar un numero random entre 1 - 6.
     srand(time(NULL));
-    int random_number = (rand() % 6)+1;
+    int random_number1 = (rand() % 6)+1;
+    int random_number2 = (rand() % 6)+1;
     std::string saludo;
     
     for(int k = 0; k < Estudiantes; k++){
-
-        saludo = rand_answer(random_number);
+        saludo = rand_answer(random_number1);
+        
         std::cout << saludo << '\n';
         
         std::cout << "\n" << "Estudiante numero #"<< k + 1 << std::endl;
@@ -398,46 +399,32 @@ int main()
     Tabla3_Columns = sizeof(Tabla3[0])/sizeof(Tabla3[0][0]);
 
     // Imprimir Tablas
-    std::cout << "Multidimentional Arrays: Double" << '\n';
-    // Tabla1: promedio, Porcentaje_Asistencia_Anual, Bono_Otorgado_Excelencia, Valor_Del_Bono_Vacacional , Total_Bonos
-    for(int i = 0; i < Tabla1_Rows; i++){
-        for(int j = 0; j < Tabla1_Columns; j++){
-            std::cout << Tabla1[i][j] << ", ";
-        }
-        std::cout << "\n";
-    }
-
-    std::cout << "Multidimentional Arrays: Boolean" << '\n';
-
-    // Tabla2: escuelita, Bono_Por_Excelencia, Bono_Vacacional, Aplica_Para_Tutorias
-    for(int i = 0; i < Tabla2_Rows; i++){
-        for(int j = 0; j < Tabla2_Columns; j++){
-            std::cout << Tabla2[i][j] << ", ";
-        }
-        std::cout << "\n";
-    }
-
-    std::cout << "Multidimentional Arrays: Int" << '\n';
-
-    // Tabla3: k (ID o Numero de estudiante), Dias_Asistidos, edad, hermanos
-    for(int i = 0; i < Tabla3_Rows; i++){
-        for(int j = 0; j < Tabla3_Columns; j++){
-            std::cout << Tabla3[i][j] << ", ";
-        }
-        std::cout << "\n";
-    }
-
+        // Double
+            // Tabla1: promedio, Porcentaje_Asistencia_Anual, Bono_Otorgado_Excelencia, Valor_Del_Bono_Vacacional , Total_Bonos
+        // Boolean
+            // Tabla2: escuelita, Bono_Por_Excelencia, Bono_Vacacional, Aplica_Para_Tutorias
+        // Int
+            // Tabla3: k (ID o Numero de estudiante), Dias_Asistidos, edad, hermanos
     
-
+    saludo = rand_answer(random_number2);
+    std::cout << saludo << '\n';
+    std::cout << "\n---- Tabla de Registros ---" << std::endl;
     for(int i = 0; i < Estudiantes; i++){
         std::string clas_temp;
         std::cout << "Estudiante #"<< Tabla3[i][0];
-        std::cout << "| Promedio: "<< Tabla1[i][0];
-        clas_temp = clasificar_por_promedio(Tabla1[i][0]); std::cout << "| Clasificacion: "<< clas_temp;
-        std::cout <<"| Asistencia Anual: "<< Tabla1[i][1] << porc;
-        std::cout << "| Escuelita: "; (Tabla2[i][0]) ? std::cout << "Si" : std::cout << "No";
-        std::cout << "| Bono Excelencia: "; (Tabla3[i][1]) ? std::cout << "Si" : std::cout << "No";
-        std::cout << "| Promedio: "<< Tabla1[i][0] << " | ";
+        std::cout << " | Promedio: "<< Tabla1[i][0];
+        clas_temp = clasificar_por_promedio(Tabla1[i][0]); std::cout << " | Clasificacion: "<< clas_temp;
+        std::cout <<" | Asistencia Anual: "<< Tabla1[i][1] << porc;
+        std::cout << " | Escuelita: "; (Tabla2[i][0]) ? std::cout << "Si" : std::cout << "No";
+        std::cout << " | Bono Excelencia: "; (Tabla3[i][1]) ? std::cout << "Si" : std::cout << "No";
+        std::cout << " | Cant. Bono Excelencia: "<< Tabla1[i][2];
+        std::cout << " | Edad: "<< Tabla3[i][2];
+        std::cout << " | Hermanos: "<< Tabla3[i][3];
+        std::cout << " | Cant. Bono Vacacional: "<< Tabla3[i][3];
+        std::cout << " | Tutorias: "; (Tabla2[i][3]) ? std::cout << "Si" : std::cout << "No";
+        std::cout << " | Total en Bonos: "<< Tabla1[i][4];
+        std::cout << "\n--------------------------------------------" << std::endl;
+
 
         std::cout << "\n";
     }
