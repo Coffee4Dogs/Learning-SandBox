@@ -7,6 +7,7 @@ Ingrese en este espacio sus datos:
 
 
 #include <iostream>
+#include <ctime>
 
 // #include <iomanip>
 // #include <string>
@@ -21,10 +22,14 @@ Ingrese en este espacio sus datos:
 
 int c = 0;
 int Estudiantes;
+char porc = '%';
+const int AÑO_ESCOLAR = 200;
 
 
 
 
+
+// Preguntar las notas
 void Preguntar_Notas(int Lista_de_Notas[], int size){
     // Preguntar al usuario por las notas
     for(int i = 0; i < size; i++){
@@ -33,9 +38,8 @@ void Preguntar_Notas(int Lista_de_Notas[], int size){
     }
 }
 
-
+// Calcula promedios si le damos una lista con notas y el tamaño de la lista
 double CalcularPromedio(int Lista_de_Notas[], int size){
-    // Funcion que calcula promedios
     double promedio = 0;
     // calcular la suma total de las notas
     for(int i = 0; i < size; i++){
@@ -47,10 +51,9 @@ double CalcularPromedio(int Lista_de_Notas[], int size){
     return promedio;
 }
 
+// clasifica los promedios con nombres
 std::string clasificar_por_promedio(int Promedio_Estudiante){
     std::string clasificacion;
-    
-
     switch(Promedio_Estudiante){
         case 0 ... 69: clasificacion = "Reprobado"; 
         break;
@@ -63,18 +66,11 @@ std::string clasificar_por_promedio(int Promedio_Estudiante){
         case 95 ... 100: clasificacion = "Excelente"; 
         break;
     }
-
-
     return clasificacion;
 }
 
-
-
-
-
-
+// Calcula porcentaje de asistencia anual si le damos el parametro dias asistidos
 double Calcular_Porcentaje_Asistencia_Anual(int Dias_Asistidos){
-    const int AÑO_ESCOLAR = 200;
     double Porcentaje_Asistencia_Anual;
 
     
@@ -82,7 +78,7 @@ double Calcular_Porcentaje_Asistencia_Anual(int Dias_Asistidos){
     return Porcentaje_Asistencia_Anual;
 }
 
-
+// convierte el promedio a un retorno booleano
 bool Va_A_La_Escuelita(double promedio){
     bool escuelita;
     if(promedio <= 69){
@@ -95,7 +91,7 @@ bool Va_A_La_Escuelita(double promedio){
     return escuelita;
 }
 
-
+//Calcula el bono otorgado si tiene la boolean (Bono_Por_Excelencia)
 double Calcular_Bono_Otorgado_Excelencia(bool Bono_Por_Excelencia){
         if(Bono_Por_Excelencia == true){
             return 1000.00;
@@ -105,6 +101,7 @@ double Calcular_Bono_Otorgado_Excelencia(bool Bono_Por_Excelencia){
         }   
 }
 
+//Clasifica cuanto aumenta el bono vacacional segun los parametros (hermanos, edad)
 double Calcular_Bono_Vacacional(int hermanos, int edad){
         double Valor_Del_Bono_Vacacional;
         // El valor del bono es equivalente a la edad multiplicada por Lps. 325.
@@ -136,7 +133,7 @@ double Calcular_Bono_Vacacional(int hermanos, int edad){
         }
     }
 
-
+//Algoritmo de ordenamiento burbuja
 void BubbleSort(int list[], int size){
     int temp;
     for(int i = 0; i < size; i++){
@@ -150,6 +147,19 @@ void BubbleSort(int list[], int size){
     }
 }
 
+//Caja de saludos
+std::string rand_answer(int x){
+    //Cambiando la semilla de los numeros random por la hora del sistema.
+    char '/'
+    switch(x){
+        case 1: return "¡Vamooooo!\n";  break;
+        case 2: return "Perfecto. ^.^ \n"; break;
+        case 3: return "Naci mas que listo.\n"; break;
+        case 4: return "Excelente. Siiuuuu...\n";  break;
+        case 5: return "Ok.    :)\n"; break;
+        case 6: return ":~ $ sudo apt-get update\n"; break;
+    }
+}
 
 
 int main()
@@ -204,14 +214,20 @@ int main()
 
     //Tabla4 (En caso de querer guardar las notas tambien, se puede hacer otra tabla que almacene las notas.)
     //Creo que ya es mucha informacion asi que estos registros no los voy a guardar. Asumo que ya los tiene el docente.
-
-
-
-
-
+    
+    
+    //Saludo
+    //Esto me va a dar un numero random entre 1 - 6.
+    srand(time(NULL));
+    int random_number = (rand() % 6)+1;
+    std::string saludo;
+    
     for(int k = 0; k < Estudiantes; k++){
-        // Tabla1[k][0] = k+1;
-        // std::cout << "Estudiante: " << Tabla1[k][0] << '\n';
+
+        saludo = rand_answer(random_number);
+        std::cout << saludo << '\n';
+        
+        std::cout << "\n" << "Estudiante numero #"<< k + 1 << std::endl;
 
         // ------------ A ------------------
         Preguntar_Notas(Lista_de_Notas, size);
@@ -225,7 +241,7 @@ int main()
         Porcentaje_Asistencia_Anual = Calcular_Porcentaje_Asistencia_Anual(Dias_Asistidos);
        
         std::cout << "El porcentaje de Asistencia anual es: ";
-        std::cout << Porcentaje_Asistencia_Anual << std::endl;
+        std::cout << Porcentaje_Asistencia_Anual << porc << std::endl;
         // ------------ C ------------------
         escuelita = Va_A_La_Escuelita(promedio);
         if(escuelita == true){
@@ -376,10 +392,10 @@ int main()
     //Leer el tamaño de las tablas
     Tabla1_Rows = sizeof(Tabla1)/sizeof(Tabla1[0]);
     Tabla1_Columns = sizeof(Tabla1[0])/sizeof(Tabla1[0][0]);
-    Tabla2_Rows = sizeof(Tabla1)/sizeof(Tabla1[0]);
-    Tabla2_Columns = sizeof(Tabla1[0])/sizeof(Tabla1[0][0]);
-    Tabla3_Rows = sizeof(Tabla1)/sizeof(Tabla1[0]);
-    Tabla3_Columns = sizeof(Tabla1[0])/sizeof(Tabla1[0][0]);
+    Tabla2_Rows = sizeof(Tabla2)/sizeof(Tabla2[0]);
+    Tabla2_Columns = sizeof(Tabla2[0])/sizeof(Tabla2[0][0]);
+    Tabla3_Rows = sizeof(Tabla3)/sizeof(Tabla3[0]);
+    Tabla3_Columns = sizeof(Tabla3[0])/sizeof(Tabla3[0][0]);
 
     // Imprimir Tablas
     std::cout << "Multidimentional Arrays: Double" << '\n';
@@ -393,7 +409,7 @@ int main()
 
     std::cout << "Multidimentional Arrays: Boolean" << '\n';
 
-    //Tabla2: escuelita, Bono_Por_Excelencia, Bono_Vacacional, Aplica_Para_Tutorias
+    // Tabla2: escuelita, Bono_Por_Excelencia, Bono_Vacacional, Aplica_Para_Tutorias
     for(int i = 0; i < Tabla2_Rows; i++){
         for(int j = 0; j < Tabla2_Columns; j++){
             std::cout << Tabla2[i][j] << ", ";
@@ -403,13 +419,29 @@ int main()
 
     std::cout << "Multidimentional Arrays: Int" << '\n';
 
-    //Tabla3: k (ID o Numero de estudiante), Dias_Asistidos, edad, hermanos
+    // Tabla3: k (ID o Numero de estudiante), Dias_Asistidos, edad, hermanos
     for(int i = 0; i < Tabla3_Rows; i++){
         for(int j = 0; j < Tabla3_Columns; j++){
             std::cout << Tabla3[i][j] << ", ";
         }
         std::cout << "\n";
     }
+
+    
+
+    for(int i = 0; i < Estudiantes; i++){
+        std::string clas_temp;
+        std::cout << "Estudiante #"<< Tabla3[i][0];
+        std::cout << "| Promedio: "<< Tabla1[i][0];
+        clas_temp = clasificar_por_promedio(Tabla1[i][0]); std::cout << "| Clasificacion: "<< clas_temp;
+        std::cout <<"| Asistencia Anual: "<< Tabla1[i][1] << porc;
+        std::cout << "| Escuelita: "; (Tabla2[i][0]) ? std::cout << "Si" : std::cout << "No";
+        std::cout << "| Bono Excelencia: "; (Tabla3[i][1]) ? std::cout << "Si" : std::cout << "No";
+        std::cout << "| Promedio: "<< Tabla1[i][0] << " | ";
+
+        std::cout << "\n";
+    }
+
 
 
 
