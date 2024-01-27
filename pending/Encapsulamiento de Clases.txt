@@ -1,0 +1,3 @@
+Public: El campo o método es visible en cualquier clase.
+Private: El campo o método sólo es visible dentro de la clase donde se define.
+Protected: El campo o método es visible en la clase en donde se define y en cualquiera de sus subclases.
