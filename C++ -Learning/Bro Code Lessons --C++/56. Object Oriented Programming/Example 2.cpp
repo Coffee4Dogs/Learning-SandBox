@@ -32,5 +32,9 @@ int main() {
     std::cout << car1.year << '\n';
     std::cout << car1.color << '\n';
 
+
+    car1.accelerate();
+    car1.brake();
+
     return 0;
 }
