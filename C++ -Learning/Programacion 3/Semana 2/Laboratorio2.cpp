@@ -163,5 +163,3 @@ int main() {
 }
 
 // commit
-// just a sync
-// the last sync
