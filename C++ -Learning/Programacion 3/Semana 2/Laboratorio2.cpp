@@ -1,3 +1,10 @@
+/* ***************************************
+Ingrese en este espacio sus datos:
+   Nombre: Jack Hollmann Lagos Mejia
+   Numero de Registro: 32011727
+
+***************************************** */
+
 #include <iostream>
 #include <string>
 #include <iomanip>
@@ -146,7 +153,7 @@ class ALUMNO {
 
 class MAESTRO{
 	//clase para control de citas
-	public:
+	private:
 		int numero;
 		std::string docente;
 		double sueldo;
@@ -154,6 +161,7 @@ class MAESTRO{
 		int estudiantes;
 		int inP1, inP2, inP3, inP4; //Estudiantes o Alumnos
 		double asistencias;
+		int edad = 18;
 
 	// Metodo sin parametros
 	public:
@@ -168,6 +176,7 @@ class MAESTRO{
 			sueldo = misueldo;
 			tutor = mitutor;
 			estudiantes = alumnos;
+			this->edad = edad;
 			
 
 	}
@@ -240,9 +249,7 @@ class MAESTRO{
 		std::cout << "El sueldo del maestro "<< docente << " paso de Lps. " << sueldoAnterior << "a Lps. " << sueldo << '\n';
 	}
 
-	void OtorgarDescuento3a(){
-		std::cout << "Este maestro tiene derecho a descuento por la tercera edad!" << '\n';
-	}
+	
 
 	void setEstudiantes(int nuevoEstudiantes){
 		estudiantes = nuevoEstudiantes;
@@ -278,10 +285,20 @@ class MAESTRO{
 		else if(Parcial == 4){
 			inP4 = CantInasistencias;
 		}
-		
 		CalcularAsistencias(inP1, inP2, inP3, inP4);
-
 	}
+
+	void setEdad(int Cambiar_Edad){
+		edad = Cambiar_Edad;
+		if(edad>=60){
+			OtorgarDescuento3a();
+		}
+	}
+
+	void OtorgarDescuento3a(){
+		std::cout << "Este maestro tiene derecho a descuento por la tercera edad!" << '\n';
+	}
+
 
 
 
@@ -296,57 +313,39 @@ class MAESTRO{
 int main() {
 	
 	cout << fixed << setprecision(2) << setw(10); 
-	
-	// crear una instancia
-	// ALUMNO Tomasito;
 	MAESTRO Jirafales(1, "Jirafales", 12000, false, 29);
 	MAESTRO Dumbledore;
 
-	Jirafales.getDatos();
 	
-	Jirafales.obtenerInformacion();
-	
-	Dumbledore.setEstudiantes(15);
 	
 	Dumbledore.setNombreDocente("Dumbledore");
-	Dumbledore.setsueldo(1000);
-	Dumbledore.getDatos();
+	// Dumbledore.setsueldo(1000);
+	// Dumbledore.getDatos();
 
-	std::cout << std::endl ;
-	std::cout << "Numero de Docente \t" <<  Dumbledore.getNumero() << std::endl;
-	std::cout << "Docente \t" << Dumbledore.getDocente() << std::endl;
-	std::cout << "Disponible para ser tutor \t" << Dumbledore.getTutor() << std::endl;           
-	std::cout << "Sueldo Base \t" << Dumbledore.getSueldo() << std::endl;
-	std::cout << "Estudiantes asignados \t" << Dumbledore.getEstudiantes()  << std::endl;
+	// std::cout << std::endl ;
+	// std::cout << "Numero de Docente \t" <<  Dumbledore.getNumero() << std::endl;
+	// std::cout << "Docente \t" << Dumbledore.getDocente() << std::endl;
+	// std::cout << "Disponible para ser tutor \t" << Dumbledore.getTutor() << std::endl;           
+	// std::cout << "Sueldo Base \t" << Dumbledore.getSueldo() << std::endl;
+	// std::cout << "Estudiantes asignados \t" << Dumbledore.getEstudiantes()  << std::endl;
 		
-	
-	std::cout << "Inasistencias del primer parcial: " << Dumbledore.inP1 << '\n';
+	//Set(Primer Parcial, Inasistencias)
 	Dumbledore.setInasistencias(1,5);
+	//Set(Segundo Parcial, Inasistencias)
 	Dumbledore.setInasistencias(2,6);
+	//Set(Tercer Parcial, Inasistencias)
 	Dumbledore.setInasistencias(3,4);
+	//Set(Cuarto Parcial, Inasistencias)
 	Dumbledore.setInasistencias(4,5);
-	// std::cout << "Porcentaje de Asistencia: "<< Dumbledore.CalcularAsistencias() << '\n';
+	//Get y Calcular Asistencias.
 	std::cout << "EL PORCENTAJE DE INASISTENCIA: " << Dumbledore.getInasistencias() <<'%'<< '\n';
-
-	// llamar metodos con / sin parametro   
-	// Tomasito.Bienvenido();
-	// Tomasito.Bienvenido(10);
-	// Tomasito.Bienvenido("Oscar");
-	
-	// Tomasito.getDatos();
-	
-	// probar constructor
-	// ALUMNO Mariana("Maria", 90, "E", 78, 40, 59, 65, false, 1 );
-	//		ALUMNO(string newNombre, int newPromedio, string newClase, int newN1, int newN2, int newN3, int newN4, bool newRec, int newHnos)  {
-	
-	// Mariana.getDatos();
-
-    
-    // Mariana.Bienvenido(25);
-	// std::cout << "Clases reprobadas: "<< Mariana.cuentaReprobados() << '\n';
+	//Si ingresamos una edad de mas de 60 años, va a mostrar el mensaje de 3ra edad.
+	Dumbledore.setEdad(61);
 
 	
+
 	
+
 	
 	
 	return 0;
