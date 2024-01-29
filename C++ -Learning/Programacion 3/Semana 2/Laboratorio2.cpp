@@ -156,6 +156,7 @@ class MAESTRO{
 		double asistencias;
 
 	// Metodo sin parametros
+	public:
 	MAESTRO(){
 		std::cout << "Maestro creado sin datos." << '\n';
 	}
@@ -248,6 +249,23 @@ class MAESTRO{
 
 	
 
+	double CalcularAsistencias(int inP1, int inP2, int inP3, int inP4){
+		int Total_Inasistencias;//Total de Inasistencias al año
+		const int  Dias_Clase = 200; //El año lectivo tiene 200 dias de clase
+		Total_Inasistencias = inP1 + inP2 + inP3 + inP4;
+		return Total_Inasistencias * 100 / Dias_Clase;
+		// return Total_Inasistencias;
+	}
+
+	void getInasistencias(){
+
+	}
+
+	void setInasistencias(int P1, int P2, int P3, int P4){
+		std::cout << CalcularAsistencias(P1, P2, P3, P4) << '\n';
+
+	}
+
 
 
 	//destructor
@@ -272,17 +290,22 @@ int main() {
 	Jirafales.obtenerInformacion();
 	
 	Dumbledore.setEstudiantes(15);
+	
+	Dumbledore.setNombreDocente("Dumbledore");
+	Dumbledore.setsueldo(1000);
 	Dumbledore.getDatos();
-	Dumbledore.docente = "Dumbledore";
 
 	std::cout << std::endl ;
-	std::cout << "Numero de Docente \t" <<  Dumbledore.numero << std::endl;
-	std::cout << "Docente \t" << Dumbledore.docente  << std::endl;
-	std::cout << "Disponible para ser tutor \t" << Dumbledore.tutor  << std::endl;           
-	std::cout << "Sueldo Base \t" << Dumbledore.sueldo << std::endl;
-	std::cout << "Estudiantes asignados \t" << Dumbledore.estudiantes  << std::endl;
+	std::cout << "Numero de Docente \t" <<  Dumbledore.getNumero() << std::endl;
+	std::cout << "Docente \t" << Dumbledore.getDocente() << std::endl;
+	std::cout << "Disponible para ser tutor \t" << Dumbledore.getTutor() << std::endl;           
+	std::cout << "Sueldo Base \t" << Dumbledore.getSueldo() << std::endl;
+	std::cout << "Estudiantes asignados \t" << Dumbledore.getEstudiantes()  << std::endl;
 		
-
+	
+	std::cout << "Inasistencias del primer parcial: " << Dumbledore.inP1 << '\n';
+	Dumbledore.setInasistencias(5,6,4,5);
+	// std::cout << "Porcentaje de Asistencia: "<< Dumbledore.CalcularAsistencias() << '\n';
 	
 
 	// llamar metodos con / sin parametro   
