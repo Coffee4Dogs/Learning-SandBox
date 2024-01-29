@@ -174,6 +174,7 @@ class MAESTRO{
 	
 	void getDatos() {
 			std::cout << std::endl ;
+			std::cout << "Usando metodo getDatos()" << '\n';
 			std::cout << "Numero de Docente \t" << numero << std::endl;
 			std::cout << "Docente \t" << docente  << std::endl;
 			std::cout << "Disponible para ser tutor \t" << tutor  << std::endl;           
@@ -184,6 +185,7 @@ class MAESTRO{
 	
 	void obtenerInformacion() {
 			std::cout << std::endl ;
+			std::cout << "Usando metodo obtenerInformacion()" << '\n';
 			std::cout << "Numero de Docente \t" << getNumero()  << std::endl;
 			std::cout << "Docente \t" << getDocente()  << std::endl;
 			std::cout << "Disponible para ser tutor \t" << getTutor()  << std::endl;           
@@ -267,9 +269,21 @@ int main() {
 
 	Jirafales.getDatos();
 	
+	Jirafales.obtenerInformacion();
+	
 	Dumbledore.setEstudiantes(15);
 	Dumbledore.getDatos();
+	Dumbledore.docente = "Dumbledore";
 
+	std::cout << std::endl ;
+	std::cout << "Numero de Docente \t" <<  Dumbledore.numero << std::endl;
+	std::cout << "Docente \t" << Dumbledore.docente  << std::endl;
+	std::cout << "Disponible para ser tutor \t" << Dumbledore.tutor  << std::endl;           
+	std::cout << "Sueldo Base \t" << Dumbledore.sueldo << std::endl;
+	std::cout << "Estudiantes asignados \t" << Dumbledore.estudiantes  << std::endl;
+		
+
+	
 
 	// llamar metodos con / sin parametro   
 	// Tomasito.Bienvenido();
