@@ -168,6 +168,7 @@ class MAESTRO{
 			sueldo = misueldo;
 			tutor = mitutor;
 			estudiantes = alumnos;
+			
 
 	}
 
@@ -249,20 +250,36 @@ class MAESTRO{
 
 	
 
-	double CalcularAsistencias(int inP1, int inP2, int inP3, int inP4){
-		int Total_Inasistencias;//Total de Inasistencias al año
-		const int  Dias_Clase = 200; //El año lectivo tiene 200 dias de clase
-		Total_Inasistencias = inP1 + inP2 + inP3 + inP4;
-		return Total_Inasistencias * 100 / Dias_Clase;
-		// return Total_Inasistencias;
+	// void CalcularAsistencias(int inP1, int inP2, int inP3, int inP4){
+	// 	double total_inasistencias (inP1 + inP2 + inP3 + inP4); 
+	// 	asistencias = total_inasistencias * 100 / 200;
+	// 	// asistencias = 1;
+	// }
+
+	double getInasistencias(){
+		return asistencias;
 	}
 
-	void getInasistencias(){
 
+	void CalcularAsistencias(int inP1, int inP2, int inP3, int inP4){
+		asistencias = (inP1 + inP2 + inP3 + inP4) * 100 / 200;
 	}
 
-	void setInasistencias(int P1, int P2, int P3, int P4){
-		std::cout << CalcularAsistencias(P1, P2, P3, P4) << '\n';
+	void setInasistencias(int Parcial, int CantInasistencias){
+		if(Parcial == 1){
+			inP1 = CantInasistencias;
+		}
+		else if(Parcial == 2){
+			inP2 = CantInasistencias;
+		}
+		else if(Parcial == 3){
+			inP3 = CantInasistencias;
+		}
+		else if(Parcial == 4){
+			inP4 = CantInasistencias;
+		}
+		
+		CalcularAsistencias(inP1, inP2, inP3, inP4);
 
 	}
 
@@ -304,9 +321,12 @@ int main() {
 		
 	
 	std::cout << "Inasistencias del primer parcial: " << Dumbledore.inP1 << '\n';
-	Dumbledore.setInasistencias(5,6,4,5);
+	Dumbledore.setInasistencias(1,5);
+	Dumbledore.setInasistencias(2,6);
+	Dumbledore.setInasistencias(3,4);
+	Dumbledore.setInasistencias(4,5);
 	// std::cout << "Porcentaje de Asistencia: "<< Dumbledore.CalcularAsistencias() << '\n';
-	
+	std::cout << "EL PORCENTAJE DE INASISTENCIA: " << Dumbledore.getInasistencias() <<'%'<< '\n';
 
 	// llamar metodos con / sin parametro   
 	// Tomasito.Bienvenido();
