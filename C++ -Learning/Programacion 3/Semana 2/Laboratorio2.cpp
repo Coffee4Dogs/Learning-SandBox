@@ -34,14 +34,13 @@ class ALUMNO {
 			promedio = newPromedio;
 			clasificacion = newClase;
 			/* incluir la asignacion de notas */
+			setNotas(newN1, newN2, newN3, newN4);
 			reconocimiento = newRec;
 			hermanos = newHnos;
 			cout << "Inicializando clase con datos..." << endl;
 		}
 		
-		// constructor con parametros por defecto
 		
-		// 
 		
 		void getDatos() {
 			cout << endl ;
@@ -69,6 +68,7 @@ class ALUMNO {
 		}
 		
 		// metodos getters
+
 		
 		string getNombre(){
 			return nombre;
@@ -78,6 +78,8 @@ class ALUMNO {
 			return promedio;
 		}
 		
+		
+
 		int getNota(int parcial) {
 			switch(parcial){
 			case 1 : return nota[0]; 
@@ -108,6 +110,23 @@ class ALUMNO {
 			//
 			promedio = (nota[0]+nota[1]+nota[2]+nota[3])/4;
 		}
+
+		int cuentaReprobados(){
+			int reprobados = 0;
+			if(nota[0]<=59){
+				reprobados++;
+			}
+			if(nota[1]<=59){
+				reprobados++;
+			}
+			if(nota[2]<=59){
+				reprobados++;
+			}
+			if(nota[3]<=59){
+				reprobados++;
+			}
+			return reprobados;
+		}
 			
 			
 		
@@ -116,6 +135,7 @@ class ALUMNO {
 		    cout << "Fin de objeto Alumno" << endl; 
 		}
 			
+
 		// metodo que devuelve un valor especifico
 			
 		// metodo que ejecuta un procedimiento 
@@ -123,39 +143,152 @@ class ALUMNO {
 };
 // fin de la clase
 
+
+class MAESTRO{
+	//clase para control de citas
+	public:
+		int numero;
+		std::string docente;
+		double sueldo;
+		bool tutor;
+		int estudiantes;
+		int inP1, inP2, inP3, inP4; //Estudiantes o Alumnos
+		double asistencias;
+
+	// Metodo sin parametros
+	MAESTRO(){
+		std::cout << "Maestro creado sin datos." << '\n';
+	}
+
+	//Constructor sin parametros
+	MAESTRO(int minumero, std::string midocente,double misueldo,bool mitutor, int alumnos){
+			numero = minumero;
+			docente = midocente;
+			sueldo = misueldo;
+			tutor = mitutor;
+			estudiantes = alumnos;
+
+	}
+
+
+	
+	void getDatos() {
+			std::cout << std::endl ;
+			std::cout << "Numero de Docente \t" << numero << std::endl;
+			std::cout << "Docente \t" << docente  << std::endl;
+			std::cout << "Disponible para ser tutor \t" << tutor  << std::endl;           
+			std::cout << "Sueldo Base \t" << sueldo << std::endl;
+			std::cout << "Estudiantes asignados \t" << estudiantes  << std::endl;
+		}
+
+	
+	void obtenerInformacion() {
+			std::cout << std::endl ;
+			std::cout << "Numero de Docente \t" << getNumero()  << std::endl;
+			std::cout << "Docente \t" << getDocente()  << std::endl;
+			std::cout << "Disponible para ser tutor \t" << getTutor()  << std::endl;           
+			std::cout << "Sueldo Base \t" << getSueldo() << std::endl;
+			std::cout << "Estudiantes asignados \t" << getEstudiantes()  << std::endl;
+		}
+
+	//Get Methods
+	int getNumero(){
+		return numero;
+	}
+	std::string getDocente(){
+		return docente;
+	}
+	bool getTutor(){
+		return tutor;
+	}
+	double getSueldo(){
+		return sueldo;
+	}
+	int getEstudiantes(){
+		return estudiantes;
+	}
+
+
+	void setNumero(int nuevoNumero){
+		numero = nuevoNumero;
+	}
+	void setsueldo(double nuevoValor){
+		sueldo = nuevoValor;
+	}	
+	void setNombreDocente(std::string nuevoDocente){
+		docente = nuevoDocente;
+	}
+	void setTutor(bool soyTutor){
+		tutor = soyTutor;
+	}
+
+
+
+	void IncrementarSueldo(){
+		double sueldoAnterior = sueldo;
+		sueldo = sueldo * 1.1;
+		std::cout << "El sueldo del maestro "<< docente << " paso de Lps. " << sueldoAnterior << "a Lps. " << sueldo << '\n';
+	}
+
+	void IncrementarSueldo(double sueldo){
+		double sueldoAnterior = sueldo;
+		sueldo = sueldo * 1.1;
+		std::cout << "El sueldo del maestro "<< docente << " paso de Lps. " << sueldoAnterior << "a Lps. " << sueldo << '\n';
+	}
+
+	void OtorgarDescuento3a(){
+		std::cout << "Este maestro tiene derecho a descuento por la tercera edad!" << '\n';
+	}
+
+	void setEstudiantes(int nuevoEstudiantes){
+		estudiantes = nuevoEstudiantes;
+	}
+
+	
+
+
+
+	//destructor
+	~MAESTRO(){
+	}
+
+
+};
+
+
 int main() {
 	
 	cout << fixed << setprecision(2) << setw(10); 
 	
 	// crear una instancia
-	ALUMNO Tomasito;
+	// ALUMNO Tomasito;
+	MAESTRO Jirafales(1, "Jirafales", 12000, false, 29);
+	MAESTRO Dumbledore;
+
+	Jirafales.getDatos();
 	
+	Dumbledore.setEstudiantes(15);
+	Dumbledore.getDatos();
+
+
 	// llamar metodos con / sin parametro   
-	Tomasito.Bienvenido();
-	Tomasito.Bienvenido(10);
-	Tomasito.Bienvenido("Oscar");
+	// Tomasito.Bienvenido();
+	// Tomasito.Bienvenido(10);
+	// Tomasito.Bienvenido("Oscar");
 	
-	Tomasito.getDatos();
+	// Tomasito.getDatos();
 	
 	// probar constructor
-	ALUMNO Mariana("Maria", 90, "E", 90, 90, 90, 90, false, 1 );
+	// ALUMNO Mariana("Maria", 90, "E", 78, 40, 59, 65, false, 1 );
 	//		ALUMNO(string newNombre, int newPromedio, string newClase, int newN1, int newN2, int newN3, int newN4, bool newRec, int newHnos)  {
+	
+	// Mariana.getDatos();
 
-    Mariana.getDatos();
     
-    Mariana.Bienvenido(25);
-	
-	// probar metodo getDatos
-	
+    // Mariana.Bienvenido(25);
+	// std::cout << "Clases reprobadas: "<< Mariana.cuentaReprobados() << '\n';
 
-
-	// get y set
 	
-	
-	// pasando valores desde variables a instancia
-	
-	
-	// diferenciando private y public
 	
 	
 	
