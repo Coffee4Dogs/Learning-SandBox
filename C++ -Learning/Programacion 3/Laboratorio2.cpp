@@ -344,7 +344,7 @@ class SUPLENTE : public MAESTRO{
             this->CodigoMaestro = CodigoMaestro;
         }
 
-
+	
 
 
 
