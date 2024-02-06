@@ -26,12 +26,12 @@ int main() {
 }
 
 // itterative approach
-// void walk(int steps){
-//     for(int i = 0; i < steps; i++){
-//         std::cout << "You take a step!" << '\n';
+void walk(int steps){
+    for(int i = 0; i < steps; i++){
+        std::cout << "You take a step!" << '\n';
 
-//     }
-// }
+    }
+}
 
 // -------------------------
 

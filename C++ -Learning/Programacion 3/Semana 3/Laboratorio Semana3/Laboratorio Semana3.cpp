@@ -1,3 +1,10 @@
+/* ***************************************
+Ingrese en este espacio sus datos:
+   Nombre: Jack Hollmann Lagos Mejia
+   Numero de Registro: 32011727
+
+***************************************** */
+
 #include <iostream>
 #include <string>
 
@@ -158,11 +165,50 @@ class PRESTAMO : CUENTA {
 
     public:
         PRESTAMO(double MontoPrestamo, double MontoCuota, int CuotasOriginales, int CuotasPagadas){
-            this->MontoPrestamo = SaldoCuenta;
-            this->MontoCuota = MontoCuota;
+            ActualizarMontoPrestamo(); //MontoPrestamo = SaldoCuenta;
+            ActualizarCuotasPagadas(MontoPrestamo, CuotasOriginales, CuotasPagadas);
             this->CuotasOriginales = CuotasOriginales;
-            this->CuotasPagadas = CuotasPagadas;
+            this->CuotasPagadas = CuotasPagadas;  
         }
+
+        void ActualizarMontoPrestamo(){
+            this->MontoPrestamo = SaldoCuenta;
+            SaldoCuenta = 0;
+        }
+
+        // montocuota = montoprestamo / cantcuotas
+        void ActualizarCuotasPagadas(double MontoPrestamo, int CuotasOriginales, int CuotasPagadas){
+            int CuotasPendientes = CuotasOriginales - CuotasPagadas;
+            this->MontoCuota = MontoPrestamo / CuotasPendientes;  
+        }
+
+        void PreguntarCuotasOriginales(){
+            int CantCuotas;
+            std::cout << "Ingrese la cantidad de Cuotas Originales: ";
+            cin >> CantCuotas;
+            SetCuotasOriginales(CantCuotas);
+            std::cout << "Nuevo prestamo creado." << std::endl;
+            std::cout << "Monto de la cuota: "<< this->MontoPrestamo << '\n';
+        }
+
+        void PagarCuota(){
+            // this->CuotasOriginales
+            // this->CuotasPagadas
+            int CuotasPagar;
+            std::cout << "Ingrese las cuotas a pagar: " << '\n';
+            std::cin >> CuotasPagar;
+            this->CuotasPagadas = CuotasPagar;
+            if(this->CuotasPagadas >= this->CuotasOriginales){
+                std::cout << "Pago Completo!" << '\n';
+            }
+            else{
+              std::cout << CuotasPagar <<" cuotas pagadas con exito." << '\n';
+              std::cout << "Faltan: " << CuotasPagar << " cuotas" << std::endl;
+              std::cout << "Cada cuota es de: " << this->MontoCuota << std::endl; 
+            }
+            ActualizarCuotasPagadas(this->MontoPrestamo, this->CuotasOriginales, this->CuotasPagadas);
+        }
+
 
         // Metodos Set
             void SetMontoPrestamo(double temp){
@@ -199,16 +245,12 @@ class PRESTAMO : CUENTA {
         }
 
         //Otros Metodos
-        void PreguntarCuotasOriginales(){
-            int Cuotas;
-            std::cout << "Escriba la cantidad de cuotas originales: " << '\n';
-            std::cin >> Cuotas;
-            SetCuotasOriginales(Cuotas);
-        }
+       
 
 
 
-    PRESTAMO(){}
+    PRESTAMO(){
+    }
     ~PRESTAMO(){}
 };  
 
@@ -228,11 +270,13 @@ int main() {
     HijoAhorro.setSaldo(100, 0);
 	
 
-    // std::cout << "El saldo es: "<< General.getSaldo() << '\n';
-    Prestamo1.PreguntarCuotasOriginales();
+    std::cout << "El saldo en clase General es: "<< General.getSaldo() << '\n';
+    
     Prestamo1.SetMontoPrestamo(General.getSaldo());
-    std::cout << "El saldo es: "<< Prestamo1.GetMontoPrestamo() << '\n';
+    std::cout << "El Monto Prestamo en clase Prestamo 1 es: "<< Prestamo1.GetMontoPrestamo() << '\n';
+    // Prestamo1.CrearCuotasOriginales();
+    Prestamo1.PreguntarCuotasOriginales();
 
-
+    
     return 0;
 }
