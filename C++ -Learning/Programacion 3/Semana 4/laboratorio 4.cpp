@@ -1,91 +1,80 @@
-// #Cuenta: 32011727 -> Jack Hollmann Lagos Mejia
 #include <iostream>
-#include <queue>
 #include <vector>
 #include <algorithm>
 
-using std::queue;
 using std::string;
 using std::vector;
-using std::sort;
 
+// Variable global con las letras existentes de nuestro abc...
+char letras[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+
+//Funcion que devuelve la cantidad de veces que una letra se repite.
+// Parametro 1 el vector con las iniciales | Parametro 2, la letra a comparar.
+    int repetidas(const vector<char>& iniciales, char letra_comparar){
+        // vector<char> iniciales = {'A', 'B', 'J', 'L', 'A', 'R', 'Z', 'T'};
+        int contador = 0;
+        for(int i = 0; i < iniciales.size(); i++){
+            if(letra_comparar==iniciales[i]){
+                contador ++;
+            }
+        }
+        return contador;
+    }
 
 int main() {
     
-    //Declarar Queue/Cola
-        queue<string> libros; 
-
-    //Informacion del queue.
-        std::cout << "=> Cual es el tam. del queue? =>"<< libros.size() << '\n';       //Tamaño Queue.
-        libros.empty() == 1 ? std::cout << "=> El queue SI esta vacio" << '\n' : std::cout << "=> El queue NO esta vacio" << '\n';     //Esta Vacio?
-
-    //Agregar Elementos a la cola o queue:
-        libros.push("El Senor de los Anillos");     
-        libros.push("Harry Potter");
-        libros.push("El Codigo da Vinci");
-        libros.push("Lo que el viento se llevo");
-        libros.push("Padre Rico Padre Pobre");
-        libros.push("La Biblia");
-
-    //Informacion del queue.
-        std::cout << "=> Cual es el tam. del queue? =>"<< libros.size() << '\n';       //Tamaño Queue.
-        libros.empty() == 1 ? std::cout << "=> El queue SI esta vacio" << '\n' : std::cout << "=> El queue NO esta vacio" << '\n';     //Esta Vacio?
+    // Se desean almacenar las iniciales de algunos compañeros de 
+    // la clase en forma ordenada, suponga que todos tienen 
+    // iniciales diferentes, es decir no hay un par de estudiantes 
+    // con las mismas iniciales.
+    vector<char> iniciales = {'A', 'B', 'J', 'L', 'A', 'R', 'Z', 'T'};
+    int n = iniciales.size();
+    std::cout << "Cantidad de elementos: " << n << '\n';
 
     
-    //Declarar el vector.
-        vector<string> LibrosOrdenados; 
-    
-    // Pasar el contenido del queue a un vector.
-        while(!libros.empty()){
-            LibrosOrdenados.push_back(libros.front());
-            libros.pop();
+    // a. Imprima las iniciales en orden alfabético
+        std::cout << "a. Imprima las iniciales en orden alfabetico" << '\n'; std::cout << "\t";
+        sort(iniciales.begin(), iniciales.end());
+        for(int i = 0; i < n; i++){
+            std::cout << iniciales[i] << " ,";
         }
+        std::cout << " Fin \n" << '\n';
+
+
+    // b. Imprima las iniciales en orden inverso
+        std::cout << "b. Imprima las iniciales en orden inverso" << '\n'; std::cout << "\t";
+        reverse(iniciales.begin(), iniciales.end());
+        for(int i = 0; i < n; i++){
+            std::cout << iniciales[i] << " ,";
+        }
+        std::cout << " Fin \n" << '\n';
+
+
+    // c. Determine el tamaño del contenedor
+    std::cout << "c. Determine el tamano del contenedor" << '\n'; std::cout << "\t";
+    std::cout << "Contenedor: - "<< iniciales.size() << " Elementos." << '\n \n';
+
+
+    // a. Imprima las iniciales en orden alfabético.
+    std::cout << "a. Imprima las iniciales en orden alfabetico." << '\n'; std::cout << "\t \n";
+    iniciales.insert(iniciales.end(), {'Z', 'L', 'Q', 'J', 'W', 'R', 'A', 'L', 'A', 'B', 'C', 'C'});
     
-    //Ordenar libros de menor a mayor. Se necesita la libreria #include <algorithm>
-        sort(LibrosOrdenados.begin(), LibrosOrdenados.end());
 
-    // Meter los libros al queue de nuevo
-        for(int i = 0; i < LibrosOrdenados.size(); i++){
-                libros.push(LibrosOrdenados[i]);
-                
-        }  
-
-
-
+    // b.Determine cuantas veces se encuentra registrado unas iniciales
+    // ingresadas por el usuario
+    std::cout << "b. Determine cuantas veces se encuentra registrado unas iniciales ingresadas por el usuario." << std::endl; std::cout << "\t";
+    
+    // cuantas veces aparece repetida una letra:
+        std::cout << repetidas(iniciales, 'A') << '\n';
     
 
-
-
-
-
-
-
-    // Mostrar que los libros ya estan ordenados de menor a mayor:
-    std::cout << "Los libros estan ordenados de menor a mayor " << '\n';
-    while(!libros.empty()){
-        std::cout << "\t - "<<libros.front() << std::endl;
-        libros.pop();
+    int letras_size = sizeof(letras)/sizeof(letras[0]); 
+    
+    for(int i = 0; i < letras_size; i++){
+        std::cout << "La letra " << letras[i] << " aparece "<< repetidas(iniciales, letras[i]) << " veces." << std::endl;
     }
-    std::cout << '\n';
-    std::cout << "--------------" << '\n';
-
-    std::cout << "Imprimir en Reversa: " << '\n';
-    queue<string> libros_inverso;
-    
-    
-
-    libros_inverso.push(libros.front());
-
-    std::cout << "--> "<<libros_inverso.front() << '\n';
-   
-   
-
-    
-        
-
-    
 
 
-    std::cout << "Programa termino con exito." << '\n';
+    std::cout << "All good! :D" << '\n';
     return 0;
 }
