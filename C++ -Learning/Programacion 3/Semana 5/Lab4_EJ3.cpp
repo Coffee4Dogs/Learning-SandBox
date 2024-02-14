@@ -93,8 +93,7 @@ int main() {
 
     //Encuentre un algoritmo que pudieramos aplicarle a este mapa.
     // el mapa es: mRegistro
-
-
+    
 
     std::cout << "Fin del programa" << '\n';
     return 0;
