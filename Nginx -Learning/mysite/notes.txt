@@ -1,0 +1,16 @@
+#We are dealing with http responces
+http{
+    #Inside the http there is a server.
+    server{
+        
+        #This server will listen in the port 8080.
+        listen 8080;
+        
+        #The root directive is the path that will contain a bunch of files we go to 8000. This path will be "Your Website" of course.
+        root C:\Users\jackl\Desktop\mysite;
+
+    }
+}
+
+# We are also dealing with events.
+events{}
