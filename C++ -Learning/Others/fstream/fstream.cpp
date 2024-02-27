@@ -6,6 +6,8 @@ using std::string;
 int main() {
     fstream file;
     string address = "text.txt";
+    string line;
+    
 
 
     file.open(address, fstream::out);
@@ -22,7 +24,7 @@ int main() {
     }
     
     file.open(address, fstream::in);
-    string line;
+    
     if(file.is_open()){
         while(getline(file, line)){
             std::cout << line << '\n';
