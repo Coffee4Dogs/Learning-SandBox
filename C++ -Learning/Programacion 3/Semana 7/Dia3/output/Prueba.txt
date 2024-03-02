@@ -1,0 +1,6 @@
+0 1236 Juanita 40 50 0
+1 6987 Andres 14 50 0
+2 7412 Luna 30 35 1
+3 2589 Mario 40 35 1
+4 9632 Mauricio 25 70 0
+5 2147 Julia 10 54 1
