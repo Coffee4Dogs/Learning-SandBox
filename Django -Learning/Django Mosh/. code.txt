@@ -1,0 +1,42 @@
+#Create a virtual enviroment
+pipenv install django
+
+#start python enviroment, not the global enviroment.
+pipenv shell 
+
+#Django-Admin is a utility that comes with django
+django-admin
+
+#From this utility, we want to use the one called: startproject followed by the name of the project:
+django-admin startproject storefront
+
+#Instead of doing a new folder, we can also do it in the curent folder:
+django-admin startproject .
+
+#Open the file manage.py using python command. You will see that it has some commands as well.
+python manage.py
+
+#To run the server use:
+python manage.py runserver
+
+#By default will use something like the local host (127.0.0.1) and port 8000.
+#Quit the server with CTRL-BREAK. (Windows)
+#Lets try to open it in port 8080:
+python manage.py runserver 8080 
+
+# easy...
+
+#Stop the server by just killing the window again with Ctrl + C or command in Mac...
+#Lets go and open our enviroment in Visual Studio Code now.
+
+
+#Open the folder where you created the project and type to show the path of the enviroment:
+pipenv --venv
+
+Ctrl Shift + P to select the Interpreter.
+Enter the path of the interpreter.
+Example: C:\Users\jackl\.virtualenvs\Django_Mosh-BrH4nmFD
+
+
+
+

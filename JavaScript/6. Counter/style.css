@@ -1,0 +1,62 @@
+
+body{
+    background-color: #080808;
+}
+
+
+/* Counter */
+#btnContainer{
+    font-family: "Share Tech Mono", monospace;
+    font-size: 30px;
+    font-weight: 400;
+    font-style: normal; 
+    width: 200pt;
+    background: linear-gradient(45deg, #0b011b, #122b6e);
+    color: #fff;
+    margin: 4pt;
+    border-radius: 8px;
+    padding: 10pt    
+    
+}
+
+#decreaseBtn{
+    font-size: 16px;
+    border-style: solid;
+    border: 1px;
+    border-radius: 4px;
+    background: linear-gradient(45deg, #122b6e, #740658);
+    color: #fff;
+}
+
+#resetBtn{
+    font-size: 16px;
+    border-style: solid;
+    border: 1px;
+    border-radius: 4px;
+    background: linear-gradient(45deg, #122b6e, #740658);
+    color: #fff;
+
+}
+
+#increaseBtn{
+    font-size: 16px;
+    border-style: solid;
+    border: 1px;
+    border-radius: 4px;
+    background: linear-gradient(45deg, #122b6e, #740658);
+    color: #fff;
+
+}
+
+
+#decreaseBtn:hover{
+    background: linear-gradient(45deg, #122b6e, #286e8f);
+}
+#resetBtn:hover{
+    background: linear-gradient(45deg, #122b6e, #286e8f);
+
+}
+#increaseBtn:hover{
+    background: linear-gradient(45deg, #122b6e, #286e8f);
+
+}

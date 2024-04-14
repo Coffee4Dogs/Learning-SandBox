@@ -1,0 +1,44 @@
+body{
+    background: #161616;
+}
+
+.MenuButton{
+
+    text-align: center;
+    width: 300px;
+    padding-top: 0.6em;
+    padding-bottom: 1.2em;
+    font-size: 40px;
+    color:  #cac9c9;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #cf0f3f, #3f0b9e);
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400; 
+}
+
+.button{
+    color:#cac9c9;
+    font-size: 14px;
+    font-weight: 80;
+    background: #0a0a0a;
+    border-style: solid;
+    border-radius: 3px;
+    border-color: #0a0a0a;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    margin: 0.2em 0.2em 0.2em 0.2em;
+
+}
+
+.button:hover{
+
+    background: #cac9c9;
+    color: #0f0f0f;
+}
+
+.button:active {
+    background-color:#ffffff;
+    background: #0a0a0a;
+}

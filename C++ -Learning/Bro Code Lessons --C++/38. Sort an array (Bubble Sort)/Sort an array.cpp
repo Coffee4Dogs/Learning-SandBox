@@ -32,6 +32,7 @@ void sort(int array[], int size){
 
     for(int i = 0; i<size-1; i++){
         for(int j = 0; j < size - i - 1; j++){
+            //Change in if < or > for decreacing or increacing.
             if(array[j]>array[j+1]){
                 temp = array[j];
                 array[j] = array[j + 1];

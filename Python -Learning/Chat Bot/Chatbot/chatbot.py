@@ -1,0 +1,30 @@
+print("\n ...")
+
+import random
+
+import nltk
+ps = nltk.PorterStemmer() # Inicializar el stemmer de nltk
+
+# Abrir el archivo .json
+import json
+file = open("Chatbot/words.json", 'r')
+
+# Cargar el contenido del archivo JSON en una variable
+data = json.load(file)
+
+
+
+Greeting_Ask = data["Greeting_Ask"]
+Greeting_Response = data["Greeting_Response"]
+
+
+print("Greeting_Ask", Greeting_Ask)
+print("Greeting_Response", Greeting_Response)
+
+
+print(random.choice(Greeting_Response))
+
+
+file.close() #Todo archivo que se abre se cierra
+
+

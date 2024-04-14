@@ -2,7 +2,6 @@
 //                     And = &&
 //                     OR = ||
 //                     NOT = !
-
 const temp = 28;
 
 if (temp > 20  && temp <= 30){
@@ -12,3 +11,4 @@ if (temp > 20  && temp <= 30){
 else{
     console.log("The weather is BAD")
 }
+

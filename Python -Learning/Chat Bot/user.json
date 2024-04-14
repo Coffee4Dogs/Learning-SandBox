@@ -1,0 +1,13 @@
+{
+    "key":"value",
+    "name":"Kyle",
+    "favoriteNumber": 3,
+    "IsProgrammer":true,
+    "hobbies":["Weight Lifting", "Bowling"],
+    "friends"[{
+        "name":"Joey",
+        "favoriteNumber":100,
+        "isProgrammer":false,
+        "friends":["..."]
+    }]
+}
