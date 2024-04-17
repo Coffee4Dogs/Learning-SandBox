@@ -1,0 +1,9 @@
+window.addEventListener("mousemove", ChicasSuperPoderosas);
+
+function ChicasSuperPoderosas(parametro) { //Funcion
+    var x = parametro.clientX / window.innerWidth; //calcula la posiciÃ³n horizontal del puntero del ratÃ³n en relaciÃ³n
+    var y = parametro.clientY / window.innerHeight; //con el ancho de la ventana del navegador, normalizÃ¡ndola en un rango de 0 a 1.
+    var bgPosX = x * 50; //se realizan algunos cÃ¡lculos adicionales para 
+    var bgPosY = y * 50; //determinar las posiciones de fondo ( bgPosX  y  bgPosY ).
+    document.body.style.backgroundPosition = bgPosX + "% " + bgPosY + "%";
+}
