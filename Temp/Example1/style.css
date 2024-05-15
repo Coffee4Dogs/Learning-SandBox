@@ -147,7 +147,37 @@ li a:hover{
 
 .momaso img{
     border-radius: 2px;
+}
+
+
+footer{
+    background-color: #222222;
+    padding: 2pt 20pt;
+    margin: 0pt 0pt;
+    position: absolute;
+    display: inline;
+
+    font-family: "Gabarito", sans-serif;
     
     
 }
 
+footer h1{
+    color: #d4d4d4;
+    font-size: 40px;
+    font-weight: 100;
+    
+
+}
+
+footer h2{
+    color: #fff;
+    font-size: 16px;
+    
+}
+
+footer ul{
+    display: inline;
+    text-align: right;
+
+}

@@ -1,0 +1,183 @@
+
+body{
+    background-color: #0a0a0a;
+    margin: 0em;
+}
+nav{
+    display: inline; 
+}
+
+nav h1{
+    float: left;
+    color: #e70000;
+    background: #070707;
+    margin: 6pt;
+    padding: 2pt 10pt;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 60px;
+    font-weight: 400;
+    font-style: normal;
+    display: inline; 
+}
+
+ul {
+    text-align: right;
+    list-style-type: none;
+    margin: 2pt;
+    padding: 3em 20pt;
+}
+
+li{
+    display: inline;    
+}
+
+li a{
+    background:linear-gradient(90deg, #000000, #000000);
+    color: #fff;
+    border-style: solid;
+    border-width: 0px;
+    border-radius: 0px;
+    font-size: 30px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 6pt 0pt;
+    padding: 6pt 10pt;
+    text-decoration: none;
+    height: 25%;
+      
+}
+li a:hover{
+    color: #ffffff;
+    background: #e70000;
+}
+
+.container1{
+    text-align: center;
+    margin: 0pt;
+    
+    background-position: 40px;
+    display: wrap;
+    justify-content: center;
+    padding: 26pt 0pt 46pt 16pt;
+    height: 260px;
+    animation: pulse 20s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+      transform: translate(0, 0);
+    }
+    
+    50% {
+      transform: translate(150px, 0);
+    }
+    
+    80% {
+      transform: translate(-150px, 0);
+    }
+  }
+
+
+.container1 h1{
+    color: #e70000;
+    font-family: "Ruthie", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;    
+}
+
+.container1 h2{
+    color: #dbdbdb;
+    font-family: "Gabarito", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 15px;
+    text-align: center;
+    padding: 10pt 120pt 6pt 120pt;
+    margin: 4pt 0pt 4pt 0pt;
+}
+
+.container1 button{
+    background:linear-gradient(45deg, #520552, #2069f1);
+    color: #f1f1f1;
+    border-style: solid;
+    border-width: 0px;
+    border-radius: 8px;
+    font-size: 30px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 6pt 20pt;
+    padding: 6pt 12pt;
+}
+
+.container1 button:hover{
+    background: #000000;
+    color: #f1f1f1;
+    cursor: pointer;
+}   
+
+
+.momaso{
+    background-color: #0a0a0a;
+    margin-left: calc(30%);
+    margin-right: 100pt;
+    /*margin-top: 30pt; */
+    width: 50%;
+}
+
+.momaso h1{
+    color: #e7e7e7;
+    text-align: center;
+    font-size: 40px;
+    font-family: "Ruthie", cursive;
+    font-weight: 400;
+    font-style: normal;
+    
+}
+
+.momaso p{
+    font-family: "Gabarito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100px;
+    font-style: normal;
+    color: #fff;
+}
+
+.momaso img{
+    border-radius: 2px;
+}
+
+
+footer{
+    background-color: #222222;
+    padding: 2pt 20pt;
+    margin: 0pt 0pt;
+    position: absolute;
+    display: inline;
+
+    font-family: "Gabarito", sans-serif;
+    
+    
+}
+
+footer h1{
+    color: #d4d4d4;
+    font-size: 40px;
+    font-weight: 100;
+    
+
+}
+
+footer h2{
+    color: #fff;
+    font-size: 16px;
+    
+}
+
+footer ul{
+    display: inline;
+    text-align: right;
+
+}

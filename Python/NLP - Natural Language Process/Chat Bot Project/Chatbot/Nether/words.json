@@ -1,0 +1,4 @@
+{
+    "Greeting_Ask"  :   ["¡Hola!", "¡Hola! ¡¿Como estas?!", "Hey, que tal todo?!", "¿Como estas?"],
+    "Greeting_Response"  :   ["¡Hola!", "¿Todo bien, y vos?", "Hey, ¿Que tal todo?", "Bien, muchas gracias."]
+} 

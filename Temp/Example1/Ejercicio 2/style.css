@@ -1,0 +1,26 @@
+body{
+    background: linear-gradient(90deg, #660f8e, #0b1b72); 
+    margin: 0pt;
+}
+
+nav h1{
+    text-align: center;
+    color: #fff;
+    background-color: #1f1f1f;
+    height: 20%;
+    margin: 0pt;
+    padding: 30pt;
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 100px;
+    font-size: 30pt;
+}
+
+.container1{
+    color: #fff;
+    background-color: #0a0a0a;
+    padding: 10pt;
+    width: calc(50% + 12pt);
+    text-align: center;
+
+}

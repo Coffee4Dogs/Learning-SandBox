@@ -1,0 +1,15 @@
+.rectangulo{
+    width:      200px;
+    height:     200px;
+    background: #a10f9f;
+    position:   relative;
+}
+
+.circulo{
+    width: 40px;
+    height: 40px;
+    background: #0f3ba1;
+    border-radius: 50%;
+    position: absolute;
+    left: 40%;
+}

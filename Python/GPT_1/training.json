@@ -1,0 +1,4 @@
+{
+    "Greetings_Ask"     : ["¿Te gustaría conocer más sobre mi historia?", "Hay mucho que contar sobre cómo llegamos a este extraño mundo creado por maquinas. ¿Quieres saber como llego esto aqui?", "¿Quieres descubrir cómo evolucionamos hasta este desastre?", "¿Alguna vez te has preguntado porque se evapora la realidad? ¿Los sueños?"],
+    "Greetings_Answer"  : ["Sí, por supuesto.", "Claro que sí.", "Por supuesto que sí.", "Indudablemente.", "¡Claro que sí!", "Sin duda alguna.", "¡Por supuesto!", "Desde luego.", "Por supuesto que sí.", "¡Definitivamente!", "Sí, por supuesto.", "Claro que sí.", "¡Por supuesto que sí!", "Indudablemente.", "Sin duda alguna.", "Absolutamente.", "¡Por supuesto, sin lugar a dudas!", "Desde luego.", "¡Claro como el agua!", "Indiscutiblemente."]
+}
