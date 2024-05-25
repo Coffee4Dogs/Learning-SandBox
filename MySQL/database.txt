@@ -1,0 +1,75 @@
+CREATE TABLE Genero (
+
+    idGenero INT AUTO_INCREMENT PRIMARY KEY,
+
+    descripcion VARCHAR(45)
+
+);
+
+ 
+
+CREATE TABLE Grupo (
+
+    idGrupo INT AUTO_INCREMENT PRIMARY KEY,
+
+    nombre VARCHAR(45),
+
+    formacion DATE,
+
+    desintegracion DATE
+
+);
+
+ 
+
+CREATE TABLE MusicosGrupo (
+
+    idGrupo INT,
+
+    idMusico INT,
+
+    instrumento VARCHAR(45),
+
+    fechaInicio DATE,
+
+    fechaFin DATE,
+
+    PRIMARY KEY (idGrupo, idMusico),
+
+    FOREIGN KEY (idGrupo) REFERENCES Grupo(idGrupo),
+
+    FOREIGN KEY (idMusico) REFERENCES Musico(idMusico)
+
+);
+
+ 
+
+CREATE TABLE Musico (
+
+    idMusico INT AUTO_INCREMENT PRIMARY KEY,
+
+    nombre VARCHAR(45),
+
+    lugarNacimiento VARCHAR(45),
+
+    fechaNacimiento DATE,
+
+    fechaMuerte DATE
+
+);
+
+ 
+
+CREATE TABLE GenerosGrupo (
+
+    idGrupo INT,
+
+    idGenero INT,
+
+    PRIMARY KEY (idGrupo, idGenero),
+
+    FOREIGN KEY (idGrupo) REFERENCES Grupo(idGrupo),
+
+    FOREIGN KEY (idGenero) REFERENCES Genero(idGenero)
+
+);
