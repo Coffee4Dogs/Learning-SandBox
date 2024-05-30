@@ -7,6 +7,8 @@ body{
 }
 
 .window{
+    height: calc(100% + 2pt);
+    width: calc(100% - 10pt);
     background: #FFFDF5;
     margin: 40pt;
     border: #CAA55C;
@@ -47,9 +49,10 @@ body{
     border: 0pt;
 
     position: relative;
+    
     width: 30em;
     height: 5em;
-    background: #0ebc71;
+    background: #0ebc7100;
     /* display:flex  ; */
     text-align: center;
     display: flex;
@@ -139,6 +142,17 @@ body{
     font-size: 20px;
 }
 
-
+.hora{
+    position: relative;
+    left: calc(50% - 110pt);
+    top: calc(50% - 20pt);
+    color:#4E5337;
+    text-align: center;
+    /* Font */
+    font-family: "Julius Sans One", sans-serif;
+    font-weight: 999;
+    font-style: normal;
+    font-size: 20px;
+}
 
     
