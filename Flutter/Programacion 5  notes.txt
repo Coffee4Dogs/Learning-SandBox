@@ -1,0 +1,51 @@
+https://www.youtube.com/watch?v=HQ_ytw58tC4
+
+enzo bennet - shadowman
+
+From_tkinter_import_*
+
+
+Maximo 7 faltas
+
+
+Acumulativo:
+    proyecto: 20 pts 24/sep
+
+
+    curso: 5pts
+
+examen 26 sept
+
+
+
+
+La data es persistente
+
+Programacion asincrona.
+
+las animaciones son dificiles
+
+Firebase? que es eso?
+
+firebase para authentication of users.
+
+desarrollo de AI.
+
+
+(Angel gonzales esta vivo en la clase)
+
+120 fps max 
+
+
+2 Agosto -> puntos extra
+
+120 Hz.
+
+race condition, cuando ambos llegan a solicitarse al mismo tiempo.
+
+overflow
+
+
+
+
+
